@@ -20,11 +20,13 @@ public class JobAdvertResponseListScreen extends Panel{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JobAdvertController jobAdvertController;
+	private JobAdvertiserMainScreen jobAdvertisermainscreen;
 	private ArrayList<ResponseDTO> allresponseList;
 	private Button btnView;
 	private Button btnClose;
 	private int responseid;
 	private boolean itemSelectionFlag=false;
+	private MessageDialog msg;
 	/**
 	 * Constructor
 	 * @param jobAdvertController
@@ -52,14 +54,12 @@ public class JobAdvertResponseListScreen extends Panel{
 				}
 				else
 				{
-					System.out.println("error,pls select a row");
-
+					msg= new MessageDialog(jobAdvertisermainscreen,"Error","Please select a record.");
 				}
 			}
 		});
 		return btnView;
 	}
-
 
 	/**
 	 * Creating Close Button for JobAdvertResponseListScreen
@@ -73,7 +73,6 @@ public class JobAdvertResponseListScreen extends Panel{
 		});
 		return btnClose;
 	}
-
 
 	/**
 	 * initialize the JobAdvertResponseListScreen
@@ -119,7 +118,6 @@ public class JobAdvertResponseListScreen extends Panel{
 		{
 			e1.printStackTrace();
 		}
-
 		pButton.add(getViewButton());
 		pButton.add(getCloseButton());
 		sc.setSize(300, 300);
@@ -143,10 +141,6 @@ public class JobAdvertResponseListScreen extends Panel{
 				}
 			}
 		});
-
-
-
-
 
 	}
 	/**
