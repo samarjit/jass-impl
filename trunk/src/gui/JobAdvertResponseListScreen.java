@@ -26,7 +26,7 @@ public class JobAdvertResponseListScreen extends Panel{
 	private Button btnClose;
 	private int responseid;
 	private boolean itemSelectionFlag=false;
-	private MessageDialog msg;
+	
 	/**
 	 * Constructor
 	 * @param jobAdvertController
@@ -54,7 +54,7 @@ public class JobAdvertResponseListScreen extends Panel{
 				}
 				else
 				{
-					msg= new MessageDialog(jobAdvertisermainscreen,"Error","Please select a record.");
+					 new MessageDialog(jobAdvertisermainscreen,"Error","Please select a record.");
 				}
 			}
 		});
