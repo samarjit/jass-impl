@@ -20,12 +20,10 @@ public class JobAdvertDTO implements PropDTO{
 	public void setCmpnyDesc(String cmpnyDesc) {
 		this.cmpnyDesc = cmpnyDesc;
 	}
-	@Override
 	public int getId() {
 		return Id;
 	}
 
-	@Override
 	public void setId(int id) {
 		this.Id = id;
 	}
