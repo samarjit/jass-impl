@@ -16,7 +16,6 @@ import dto.*;
 public class JobAdvertDAO<T> implements PropDAO<T>{
 	
 	public static String PROPFILE = "properties/jobadvert.properties";
-	@Override
 	public   void insert(T dt) throws Exception {
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
@@ -49,7 +48,6 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 	    
 	}
 
-	@Override
 	public   T select(T  dt) throws Exception {
 		 JobAdvertDTO jdt=  (JobAdvertDTO)  dt;
 		 Properties prop= new Properties();
@@ -73,7 +71,6 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 	}
 		 
 
-	@Override
 	public Collection<T> selectAll() throws Exception {
 		 JobAdvertDTO jdt= null;
 		 Properties prop= new Properties();
@@ -101,7 +98,6 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 		return (Collection<T>) arJobadvertDTO;
 	}
 
-	@Override
 	public   void update(T dt) throws Exception {
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
@@ -153,7 +149,6 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			return i;
 	}
 
-	@Override
 	public void delete(T dt) throws Exception {
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
