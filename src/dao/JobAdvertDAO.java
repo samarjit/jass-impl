@@ -36,8 +36,20 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 		{
 			
 			prop.setProperty("id"+i, String.valueOf(jdt.getId()));
-			prop.setProperty("addesc"+i, jdt.getAdDesc());
-			prop.setProperty("cmpnydesc"+i, jdt.getCmpnyDesc());
+			prop.setProperty("cmpnyDesc"+i, jdt.getCmpnyDesc());
+			prop.setProperty("jobrefcode"+i,jdt.getJobrefcode());
+			prop.setProperty("cmpname"+i, jdt.getCmpname());
+			prop.setProperty("department"+i, jdt.getDepartment());
+			prop.setProperty("jobtitle"+i, jdt.getJobtitle());
+			prop.setProperty("jobdesc"+i, jdt.getJobdesc());
+			prop.setProperty("techskills"+i, jdt.getTechskills());
+			prop.setProperty("mgmtskills"+i, jdt.getMgmtskills());
+			prop.setProperty("noyrexp"+i, jdt.getNoyrexp());
+			prop.setProperty("salaryrange"+i, jdt.getSalaryrange());
+			prop.setProperty("startdate"+i, jdt.getStartdate());
+			prop.setProperty("location"+i, jdt.getLocation());
+			prop.setProperty("advertizerref"+i, jdt.getAdvertizerref());
+			
 			 
 			fout = new FileOutputStream(JobAdvertDAO.PROPFILE);
 			prop.store(fout, "Updated on: " + new Date());
@@ -63,8 +75,19 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			throw new Exception("Select failed:Record does not exists");
 			}else{
 			    jdt.setId(Integer.parseInt(prop.getProperty("id"+i)));
-				jdt.setAdDesc(prop.getProperty("addesc"+i));
-				jdt.setCmpnyDesc(prop.getProperty("cmpnydesc"+i));
+			    jdt.setCmpnyDesc(prop.getProperty("cmpnyDesc"+i));
+			    jdt.setJobrefcode(prop.getProperty("jobrefcode"+i));
+			    jdt.setCmpname(prop.getProperty("cmpname"+i));
+			    jdt.setDepartment(prop.getProperty("department"+i));
+			    jdt.setJobtitle(prop.getProperty("jobtitle"+i));
+			    jdt.setJobdesc(prop.getProperty("jobdesc"+i));
+			    jdt.setTechskills(prop.getProperty("techskills"+i));
+			    jdt.setMgmtskills(prop.getProperty("mgmtskills"+i));
+			    jdt.setNoyrexp(prop.getProperty("noyrexp"+i));
+			    jdt.setSalaryrange(prop.getProperty("salaryrange"+i));
+			    jdt.setStartdate(prop.getProperty("startdate"+i));
+			    jdt.setLocation(prop.getProperty("location"+i));
+			    jdt.setAdvertizerref(prop.getProperty("advertizerref"+i));
 			}
 			 
 			return  dt;
@@ -87,8 +110,20 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 						str = str.substring(str.length()-1,str.length() );
 						jdt= new JobAdvertDTO();
 						jdt.setId(Integer.parseInt(prop.getProperty("id"+str)));
-						jdt.setAdDesc(prop.getProperty("addesc"+str));
 						jdt.setCmpnyDesc(prop.getProperty("cmpnydesc"+str));
+						jdt.setCmpnyDesc(prop.getProperty("cmpnyDesc"+str));
+					    jdt.setJobrefcode(prop.getProperty("jobrefcode"+str));
+					    jdt.setCmpname(prop.getProperty("cmpname"+str));
+					    jdt.setDepartment(prop.getProperty("department"+str));
+					    jdt.setJobtitle(prop.getProperty("jobtitle"+str));
+					    jdt.setJobdesc(prop.getProperty("jobdesc"+str));
+					    jdt.setTechskills(prop.getProperty("techskills"+str));
+					    jdt.setMgmtskills(prop.getProperty("mgmtskills"+str));
+					    jdt.setNoyrexp(prop.getProperty("noyrexp"+str));
+					    jdt.setSalaryrange(prop.getProperty("salaryrange"+str));
+					    jdt.setStartdate(prop.getProperty("startdate"+str));
+					    jdt.setLocation(prop.getProperty("location"+str));
+					    jdt.setAdvertizerref(prop.getProperty("advertizerref"+str));
 						arJobadvertDTO.add(jdt);
 				}
 			}
@@ -120,8 +155,19 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 		}else{
 
 			prop.setProperty("id"+i, String.valueOf(jdt.getId()));
-			prop.setProperty("addesc"+i, jdt.getAdDesc());
-			prop.setProperty("cmpnydesc"+i, jdt.getCmpnyDesc());
+			prop.setProperty("cmpnyDesc"+i, jdt.getCmpnyDesc());
+			prop.setProperty("jobrefcode"+i,jdt.getJobrefcode());
+			prop.setProperty("cmpname"+i, jdt.getCmpname());
+			prop.setProperty("department"+i, jdt.getDepartment());
+			prop.setProperty("jobtitle"+i, jdt.getJobtitle());
+			prop.setProperty("jobdesc"+i, jdt.getJobdesc());
+			prop.setProperty("techskills"+i, jdt.getTechskills());
+			prop.setProperty("mgmtskills"+i, jdt.getMgmtskills());
+			prop.setProperty("noyrexp"+i, jdt.getNoyrexp());
+			prop.setProperty("salaryrange"+i, jdt.getSalaryrange());
+			prop.setProperty("startdate"+i, jdt.getStartdate());
+			prop.setProperty("location"+i, jdt.getLocation());
+			prop.setProperty("advertizerref"+i, jdt.getAdvertizerref());
 			 
 			fout = new FileOutputStream(JobAdvertDAO.PROPFILE);
 			prop.store(fout, "Updated on: " + new Date());
@@ -174,8 +220,19 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 //			prop.setProperty("addesc"+i, jdt.getAdDesc());
 //			prop.setProperty("cmpnydesc"+i, jdt.getCmpnyDesc());
 			prop.remove("id"+i) ;
-			prop.remove("addesc"+i) ;
-			prop.remove("cmpnydesc"+i) ;
+			prop.remove("cmpnyDesc"+i) ;
+			prop.remove("jobrefcode"+i) ;
+			prop.remove("cmpname"+i) ;
+			prop.remove("department"+i) ;
+			prop.remove("jobtitle"+i) ;
+			prop.remove("jobdesc"+i) ;
+			prop.remove("techskills"+i) ;
+			prop.remove("mgmtskills"+i) ;
+			prop.remove("noyrexp"+i) ;
+			prop.remove("salaryrange"+i) ;
+			prop.remove("startdate"+i) ;
+			prop.remove("location"+i) ;
+			prop.remove("advertizerref"+i) ;
 			fout = new FileOutputStream(JobAdvertDAO.PROPFILE);
 			prop.store(fout, "deleted rec no:"+i +" on " + new Date());
 			fout.close();
