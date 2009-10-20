@@ -1,5 +1,16 @@
 package gui;
 
+/**
+* @Author               :       samarjit
+* @Creation Date        :       14/03/2009
+* @Description          :    GTcell implementaion to be used with GTable
+*  
+* @          -------------------------------------------------
+* @Revision:  Revision Date    Name     Change Description      
+* @          -------------------------------------------------     
+* @                      
+*/
+
 import java.awt.AWTEventMulticaster;
 import java.awt.Color;
 import java.awt.Component;
@@ -13,9 +24,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+ 
+/**
+ * @author Samarjit
+ *
+ */
 public class GTcell extends Component{
 	/**
-	 * 
+	 * Default serial version UID
 	 */
 	private static final long serialVersionUID = 1L;
 	private int nlines;
@@ -32,6 +48,16 @@ public class GTcell extends Component{
 	private int charHeight = 0;
 	private ActionListener actionListener;
 	private String actionCommand=null;
+	/**
+	 * This is a constructor for creating a cell and fill it with data. It also takes a reference of
+	 * parent element.
+	 * @param trow parent Element
+	 * @param x position x
+	 * @param y position y
+	 * @param width width of the cell
+	 * @param data text data to be filled in the cell
+	 * @throws Exception
+	 */
 	public GTcell(GTrow trow,int x,int y,int width, String data) throws Exception{
 		super();
 		//colwidth=width;
@@ -77,6 +103,10 @@ public class GTcell extends Component{
 		});
 	}
 
+	/**
+	 * Gets row text
+	 * @return
+	 */
 	private String getRowData() {
 		String allRowText="";
 		for(GTcell tc:parentElement.getCells()){
@@ -84,29 +114,51 @@ public class GTcell extends Component{
 		}
 		return allRowText;
 	}
+	/**
+	 * @param l ActionListener
+	 */
 	public void addActionListener(ActionListener l) {
 		actionListener =
 			AWTEventMulticaster.add(actionListener,l);
 	}
+	/**
+	 * @param l ActionListener
+	 */
 	public void removeActionListener(ActionListener l) {
 		actionListener =
 			AWTEventMulticaster.remove(actionListener, l);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.Component#getX()
+	 */
 	public int getX() {
 		return x;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.Component#getY()
+	 */
 	public int getY() {
 		return y;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.Component#getHeight()
+	 */
 	public int getHeight() {
 		return height;
 	}
+	/* (non-Javadoc)
+	 * @see java.awt.Component#getWidth()
+	 */
 	public int getWidth() {
 		return width;
 	}
+	/**
+	 * Used to paint the cells
+	 * @see java.awt.Component#paint(java.awt.Graphics)
+	 */
 	public void paint(Graphics g){
 		if(this.parentElement != null)
 			if(this.parentElement.isHeadingRow())
@@ -163,20 +215,44 @@ public class GTcell extends Component{
 	}
 
 	ArrayList<String> cellTexti=new ArrayList<String>();
-	@ Deprecated
+	
+	/**
+	 * The raw cell contents without the number of lines info is returned
+	 * @return The data contained by the cell in simple string format.
+	 */
 	public String getCelldata() {
 		return celldata;
 	}
+	/**
+	 * This function splits the data 
+	 * @param celldata   The data to be stored in the cell
+	 * @throws Exception
+	 */
 	private void setCelldata(String celldata) throws Exception {
 		this.celldata = celldata;
 		calcCellTexti(celldata);
 	}
+	
+	/**
+	 * @return ArrayList of cell text in lines.
+	 */
 	public ArrayList<String> getCellTextAr(){
 		return cellTexti;
 	}
+	/**
+	 * @param i The line number inside the cell.
+	 * @return  Data from a particular line inside the cell
+	 */
 	public  String getCellTexti(int i) {
 		return cellTexti.get(i);
 	}
+	
+	/**
+	 * This function will resize heights of the cell according to the data it contains. It will split
+	 * up the cells data and put it in different lines. The maximum width is calculated from the width
+	 * attribute of the cell Component. 
+	 * @param celldt
+	 */
 	private void calcCellTexti(String celldt) throws Exception {
 		String temp1,temp2;
 		int len=0;
@@ -220,6 +296,12 @@ public class GTcell extends Component{
 		}
 	}
 
+	/**
+	 * This function will resize heights of the cell according to the height provided to it by inserting 
+	 * blank lines. This is used for row height resizing.
+	 * This method is called by GTrow at the end of a table row creation.
+	 * @param trHeight
+	 */
 	public void cellResize(int trHeight){ //this is final tr height
 		while(trHeight > nlines){
 			cellTexti.add("");nlines++;height+=charHeight;
