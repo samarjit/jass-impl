@@ -3,7 +3,7 @@ package dto;
 
 
 /**
- * This class contains the entity JobAdvert.
+ * <p><b>JobAdvertDTO</b> contains the entity JobAdvert.</p>
  * @author Samarjit Samanta
  * @version 1.0
  *
@@ -11,19 +11,19 @@ package dto;
 public class JobAdvertDTO implements PropDTO{
 	
 	private int Id=0;
-	private String cmpnyDesc;
-	private String jobrefcode;
-	private String cmpname;
-	private String department;
-	private String jobtitle;
-	private String jobdesc;
-	private String techskills;
-	private String mgmtskills;
-	private String noyrexp;
-	private String salaryrange;
-	private String startdate;
-	private String location;
-	private String advertizerref;
+	private String cmpnyDesc="";
+	private String jobrefcode="";
+	private String cmpname="";
+	private String department="";
+	private String jobtitle="";
+	private String jobdesc="";
+	private String techskills="";
+	private String mgmtskills="";
+	private String noyrexp="";
+	private String salaryrange="";
+	private String startdate="";
+	private String location="";
+	private String advertizerref="";
 	
 
 	/**
