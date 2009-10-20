@@ -14,6 +14,8 @@ import dto.*;
 
 
 /**
+ * <p><b>JobAdvertDAO</b> is data access object for accessing the jobadvert properties file and 
+ * maintaining JobAdvert related records.</p>
  * @author Samarjit Samanta
  * @param <JobAdvertDTO>
  */
