@@ -13,9 +13,18 @@ import java.util.Set;
 import dto.*;
 
 
+/**
+ * @author Samarjit Samanta
+ * @param <JobAdvertDTO>
+ */
 public class JobAdvertDAO<T> implements PropDAO<T>{
 	
 	public static String PROPFILE = "properties/jobadvert.properties";
+	/**
+	 * Inserts JobAdvert to properties
+	 * @see dao.PropDAO#insert(java.lang.Object)
+	 * @exception If insert failed then exception is thrown
+	 */
 	public   void insert(T dt) throws Exception {
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
@@ -59,7 +68,11 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 		}
 	    
 	}
-
+	/**
+	 * Select a JobAdvert object from properties
+	 * @see dao.PropDAO#select(java.lang.Object)
+	 * @exception If no record exists then select throws an exception
+	 */
 	public   T select(T  dt) throws Exception {
 		 JobAdvertDTO jdt=  (JobAdvertDTO)  dt;
 		 Properties prop= new Properties();
@@ -93,7 +106,10 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			return  dt;
 	}
 		 
-
+	/**
+	 * Select all JobAdvert objects from properties
+	 * @see dao.PropDAO#selectAll(java.lang.Object)
+	 */
 	public Collection<T> selectAll() throws Exception {
 		 JobAdvertDTO jdt= null;
 		 Properties prop= new Properties();
@@ -133,6 +149,11 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 		return (Collection<T>) arJobadvertDTO;
 	}
 
+	/**
+	 * Updates a JobAdvert object from properties
+	 * @see dao.PropDAO#update(java.lang.Object)
+	 * @exception If update fails it throws an exception
+	 */
 	public   void update(T dt) throws Exception {
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
@@ -176,6 +197,12 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 		
 	}
 	
+	
+	/** 
+	 * Gets the next suitable Id that can be used for insertion of a new record. Its non conventional 
+	 * of a database system so it is not derived from interface.
+	 * @see dao.PropDAO#getNextId(java.lang.Object)
+	 */
 	public   int getNextId(T dt) throws IOException{
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
@@ -195,6 +222,11 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			return i;
 	}
 
+	/** 
+	 * Deletes a job advert object given a dummy job advert object which matched the original job 
+	 * advert id.
+	 * @see dao.PropDAO#delete(java.lang.Object)
+	 */
 	public void delete(T dt) throws Exception {
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
