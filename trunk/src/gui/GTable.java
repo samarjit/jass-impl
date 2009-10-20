@@ -2,7 +2,19 @@ package gui;
 
 
 
-
+/**
+* @Author               :       samarjit
+* @Creation Date        :       14/03/2009
+* @Description          :      GTable implementation
+*  
+* @          -------------------------------------------------
+* @Revision:  Revision Date    Name     Change Description      
+* @          -------------------------------------------------
+* @           1.1    22-sep-09 Samarjit "Made GTable a truely panel component
+* @                                                                             added function to create table just by 
+* @                                                                             gt.createGTable(headerdata, data);"     
+* @                      
+*/
 
 import java.awt.AWTEventMulticaster;
 import java.awt.Color;
@@ -21,7 +33,19 @@ import java.util.Formatter;
 
 
 /**
+ * The GTable is used to draw a table component on a client. It takes an ArrayList<String> headerdada
+ * and ArrayList<ArrayList<String>> data to populate main data part of the table. A function 
+ * createGTable(...) has been provided for easy implementation of GTable where all the column widths 
+ * will be decided by the column header width, data exceeding the length is of course wrapped up so 
+ * so that all data are visible at all times. A more complex implementation can be done based on 
+ * some strategy like; to calculate a suitable header width by averaging all the data lengths of 
+ * that column, or say get the maximum length of all the data in a column and then set the width of 
+ * column so the no data is wrapped up.  A lot of functions are public so that easy manipulation of
+ * table is possible. The table is created similar to HTML table creation, a little insight of HTML
+ * will help to manipulate the details.
+ * 
  * Usage:
+ * <pre>
  * ScrollPane sc= new ScrollPane();
  * GTable gt= new GTable( );
  * gt.createGTable(headerdata, data);
@@ -31,11 +55,13 @@ import java.util.Formatter;
                         }
                 });
                 sc.add(gt);
+   </pre>
+   
  */
 
 public class GTable extends Panel{
 	/**
-	 * 
+	 * default serial version UID
 	 */
 	private static final long serialVersionUID = 1L;
 	int width; //px
@@ -73,28 +99,47 @@ public class GTable extends Panel{
 	public void setCurY(int curY) {
 		this.curY = curY;
 	}
+	/**
+	 * @param l ActionListener
+	 */
 	public void addActionListener(ActionListener l) {
 		actionListener  = 
 			AWTEventMulticaster.add(actionListener,l);
 	}
+	/**
+	 * @param l ActionListener
+	 */
 	public void removeActionListener(ActionListener l) {
 		actionListener =
 			AWTEventMulticaster.remove(actionListener, l);
 	}
+	/**
+	 * Instead of using this method use actionPerformed()which is a more generic way.
+	 * @param ae ActionEvent
+	 */
 	public void actionOccured(ActionEvent ae){
 		if (actionListener != null) {
 			actionListener.actionPerformed(ae);
 		}
 	}
+	/**
+	 * Creates GTable initializes GTrow
+	 */
 	public GTable(){
 		super(null);
 		tr=new ArrayList<GTrow>();
 		//component = comp; //this assignment is unnecessary as table itself is now a component
 		this.x=this.getX();
 		this.y=this.getY();
-		System.out.println(this.x+ " "+this.y);
+		//System.out.println(this.x+ " "+this.y);
 	}
 
+	/**
+	 * This function is deprecated as GTable is now considered a complete viewable component of AWT
+	 * unlike its past implementation where GTable was a non viewable component and a real component object 
+	 * had to be passed at all times for it to be rendered.
+	 * @param comp
+	 */
 	@ Deprecated
 	public GTable(Panel comp){
 		tr=new ArrayList<GTrow>();
@@ -103,11 +148,20 @@ public class GTable extends Panel{
 		this.y=comp.getY();
 		System.out.println(this.x+ " "+this.y);
 	}
+	/**
+	 * Rows can be added provided that heading row has already been added
+	 * @param headingTr
+	 * @return
+	 */
 	public GTrow addRow(GTrow headingTr) {
 		GTrow newRow=new GTrow(this,headingTr,component); //component commented
 		tr.add(newRow);
 		return newRow;
 	}
+	/**
+	 * First line of rows are added using heading row. This marks the initialization of heading row.
+	 * @return
+	 */
 	public GTrow addHeadingRow(){
 		GTrow newRow=new GTrow(this,component); //component commented
 		tr.add(newRow);
@@ -121,6 +175,11 @@ public class GTable extends Panel{
 		height = tmpHeight;
 		return height;
 	}
+	/**
+	 * The table creation is completed once this method is called. New empty cells are added whereever 
+	 * required by Trow 
+	 * @throws Exception
+	 */
 	public void tableEnd() throws Exception{
 		resizeTrow();
 		getHeight();
@@ -140,6 +199,10 @@ public class GTable extends Panel{
 		return tmpHeight;
 	}
 
+	/**
+	 * 
+	 * @return  returns max number of columns
+	 */
 	private int getMaxRowSize(){//returns max number of columns 
 		int maxCols=tr.get(0).getCells().size();
 		extraCellTrow=new ArrayList<GTrow>();
@@ -155,6 +218,10 @@ public class GTable extends Panel{
 		}
 		return maxCols;
 	}
+	/**
+	 * Introduce extra cells if required
+	 * @throws Exception
+	 */
 	private void resizeTrow() throws Exception{ //introduce extra cells if missing
 		int rowsize = getMaxRowSize();
 		for(GTrow t:tr){
@@ -162,6 +229,9 @@ public class GTable extends Panel{
 
 		}
 	}
+	/* (non-Javadoc)
+	 * @see java.awt.Component#toString()
+	 */
 	public String toString(){
 		Formatter fmt=new Formatter();
 		StringBuffer stb=new StringBuffer(100);
@@ -172,6 +242,9 @@ public class GTable extends Panel{
 		return stb.toString();
 	}
 
+	/**
+	 * This colors the cells as per selected state color.
+	 */
 	public void refresh() {
 		for(GTrow gtr:tr){
 			if(gtr.getSelectedRow() == true && !gtr.isHeadingRow()){
@@ -195,6 +268,11 @@ public class GTable extends Panel{
 
 
 
+	/**
+	 * @param heading2 This will take the heading row data in ArrayList<String> form.
+	 * @param arData1 This will take the data in ArrayList<ArrayList<String>> type. 
+	 * @throws Exception Table creation exception will bubble up and be passed on to client.
+	 */
 	public void createGTable(  ArrayList<String> heading2, ArrayList<ArrayList<String>> arData1) throws Exception{
 		try {  Panel px= this;
 		for(Component cmp:px.getComponents())
