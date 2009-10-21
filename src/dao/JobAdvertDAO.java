@@ -17,7 +17,7 @@ import dto.*;
  * <p><b>JobAdvertDAO</b> is data access object for accessing the jobadvert properties file and 
  * maintaining JobAdvert related records.</p>
  * @author Samarjit Samanta
- * @param <JobAdvertDTO>
+ * @param  <T> This should be <@link dto.JobAdvertDTO> object.
  */
 public class JobAdvertDAO<T> implements PropDAO<T>{
 	
@@ -110,7 +110,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 		 
 	/**
 	 * Select all JobAdvert objects from properties
-	 * @see dao.PropDAO#selectAll(java.lang.Object)
+	 * @see dao.PropDAO#selectAll()
 	 */
 	public Collection<T> selectAll() throws Exception {
 		 JobAdvertDTO jdt= null;
