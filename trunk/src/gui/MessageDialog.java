@@ -13,9 +13,9 @@ public class MessageDialog extends Dialog {
 	private static final long serialVersionUID = 1L;
 	/**
 	 * Constructor
-	 * @param JobAdvertiserMainScreen
-	 * @param title
-	 * @param message
+	 * @param parent JobAdvertiserMainScreen
+	 * @param title Title will appear in dialog
+	 * @param msg message
 	 */
 	public MessageDialog (Frame parent, String title,String msg) {
         super (parent,title);
@@ -24,7 +24,7 @@ public class MessageDialog extends Dialog {
     }
 	/**
 	 * Initialize the components for message dialog
-	 * @param title
+	 * @param title Title will appear in dialog
 	 */
 	public void initialize(String title){
 		add ("South",  createButtonPanel());

@@ -3,37 +3,32 @@
  */
 package dao;
 
-import static org.junit.Assert.fail;
-import junit.framework.TestCase;
 import java.io.File;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import dto.JobAdvertDTO;
 
 /**
- * <p><b>JobAdvertDAOTest</b> is used to test  dao.JobAdvertDAO class</p>
+ * <p><b>JobAdvertDAOTest</b> is used to test {@link dao.JobAdvertDAO} class</p>
  * @author Samarjit Samanta
  *
  */
-public class JobAdvertDAOTest extends TestCase {
+public class JobAdvertDAOTest extends TestCase{
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		
-		
-		System.out.println("Created File"+JobAdvertDAO.PROPFILE);
+		 
 	}
 
 	/**
@@ -41,8 +36,7 @@ public class JobAdvertDAOTest extends TestCase {
 	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		
-		System.out.println("Deleting temporary file"+JobAdvertDAO.PROPFILE);
+		 
 	}
 
 	/**
@@ -55,7 +49,6 @@ public class JobAdvertDAOTest extends TestCase {
 		File f = new File(JobAdvertDAO.PROPFILE);
 		f.delete();
 		f.createNewFile();
-		System.out.println("before");
 	}
 
 	/**
@@ -66,11 +59,10 @@ public class JobAdvertDAOTest extends TestCase {
 		JobAdvertDAO.PROPFILE = "properties/jobadvertdaotest.properties";
 		File f = new File(JobAdvertDAO.PROPFILE);
 		f.delete();
-		System.out.println("after");
 	}
 
 	/**
-	 * Test method for  dao.JobAdvertDAO#insert(java.lang.Object)}.
+	 * Test method for {@link dao.JobAdvertDAO#insert(java.lang.Object)}.
 	 */
 	@Test
 	public void testInsert() {
@@ -105,7 +97,7 @@ public class JobAdvertDAOTest extends TestCase {
 	
 
 	/**
-	 * Test method for  dao.JobAdvertDAO#selectAll()}.
+	 * Test method for {@link dao.JobAdvertDAO#selectAll()}.
 	 */
 	@Test
 	public void testSelectAll() {
@@ -141,7 +133,7 @@ public class JobAdvertDAOTest extends TestCase {
 	}
 
 	/**
-	 * Test method for  dao.JobAdvertDAO#update(java.lang.Object)}.
+	 * Test method for {@link dao.JobAdvertDAO#update(java.lang.Object)}.
 	 */
 	@Test
 	public void testUpdate() {
@@ -174,7 +166,7 @@ public class JobAdvertDAOTest extends TestCase {
 	}
 
 	/**
-	 * Test method for  dao.JobAdvertDAO#getNextId(java.lang.Object)}.
+	 * Test method for {@link dao.JobAdvertDAO#getNextId(java.lang.Object)}.
 	 */
 	@Test
 	public void testGetNextId() {
@@ -200,7 +192,7 @@ public class JobAdvertDAOTest extends TestCase {
 	}
 
 	/**
-	 * Test method for  dao.JobAdvertDAO#delete(java.lang.Object).
+	 * Test method for {@link dao.JobAdvertDAO#delete(java.lang.Object)}.
 	 */
 	@Test
 	public void testDelete() {

@@ -1,7 +1,7 @@
 package gui;
 
 /**
-* @Author               :       samarjit
+* @author               :       samarjit
 * @Creation Date        :       14/03/2009
 * @Description          :    GTrow implementaion to be used with GTable
 *  
@@ -19,6 +19,15 @@ import java.util.Formatter;
 
 
 
+/**
+ * <p><b>GTrow</b> class is used by <@link GTable> to internally create table rows. Although the 
+ * table creation is implemented inside GTable class it can be used directly by client for more granular control
+ * for example: setting the widths of a column as wished by client will require to use this class directly to
+ * create table rows of particular width. </p>
+ * 
+ * @author               :       samarjit
+ * @version 1.0
+ */
 public class GTrow{
 	private int height;
 	private int numcells;
@@ -212,7 +221,8 @@ public class GTrow{
 	}
 	/**
 	 * This can be used to draw upper and lower borders to a text based table representation.
-	 * @return
+	 * @return it Returns something like <code>+---------+---+</code> according to table columns.
+	 *            Should be used to create text tables.      
 	 */
 	public String drawSeparator(){
 		StringBuffer tmp = new StringBuffer(50);
