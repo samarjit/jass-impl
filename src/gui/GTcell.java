@@ -26,8 +26,10 @@ import java.util.ArrayList;
 
  
 /**
+ * <p><b>GTcell</b> class is used by GTrow to create cells as its child. But this class is more generic and can be used to
+ * draw a cell just on any component</p>
  * @author Samarjit
- *
+ * @version 1.0
  */
 public class GTcell extends Component{
 	/**

@@ -3,7 +3,7 @@ package gui;
 
 
 /**
-* @Author               :       samarjit
+* @author               :       samarjit
 * @Creation Date        :       14/03/2009
 * @Description          :      GTable implementation
 *  
@@ -56,7 +56,8 @@ import java.util.Formatter;
                 });
                 sc.add(gt);
    </pre>
-   
+   @author               :       samarjit
+   @version 1.1   22-sep-09
  */
 
 public class GTable extends Panel{
@@ -151,7 +152,7 @@ public class GTable extends Panel{
 	/**
 	 * Rows can be added provided that heading row has already been added
 	 * @param headingTr
-	 * @return
+	 * @return subsequent GTrow objects based on headingTr
 	 */
 	public GTrow addRow(GTrow headingTr) {
 		GTrow newRow=new GTrow(this,headingTr,component); //component commented
@@ -160,7 +161,7 @@ public class GTable extends Panel{
 	}
 	/**
 	 * First line of rows are added using heading row. This marks the initialization of heading row.
-	 * @return
+	 * @return the created heading GTrow
 	 */
 	public GTrow addHeadingRow(){
 		GTrow newRow=new GTrow(this,component); //component commented
