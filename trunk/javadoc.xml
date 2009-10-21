@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="lib/junit-4.7.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="gui,controller,dao,dto,suite" source="1.5" sourcefiles="src/gui/GTable.java,src/gui/JobAdvertListScreen.java,src/gui/JobAdvertiserMainScreen.java,src/controller/MainController.java,src/gui/AddJobAdvertScreen.java,src/gui/GTrow.java,src/gui/JobAdvertResponseDetailScreen.java,src/gui/JobAdvertDetailScreen.java,src/gui/GTcell.java,src/gui/JobAdvertResponseListScreen.java,src/gui/MessageDialog.java,src/controller/JobAdvertController.java" sourcepath="src;test" splitindex="true" use="true" version="true">
+            <link href="file:/F:/eclipse/workspace/drools/jass/doc/"/>
+        </javadoc>
+    </target>
+</project>
