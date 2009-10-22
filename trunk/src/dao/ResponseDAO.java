@@ -17,7 +17,7 @@ import dto.*;
 /**
  * <p> <b>ResponseDAO</b> This class handles the update, delete, insert, select 
  * operations on Response records</p> 
- * 
+ * @param  <T> This should be <@link dto.ResponseDTO> object.
  * 
  * @author Justin Jose
  * @version 1.0	28/09/09
@@ -30,8 +30,10 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	public static String PROPFILE = "properties/response.properties";
 	
 	/**
-	 * insert one record into the file
+	 * insert one Response record into the Response properties file
+	 * @see dao.PropDAO#insert(java.lang.Object)
 	 * @param T template variable. Can be any DTO
+	 * @exception If insert failed then exception is thrown
 	 */
 	public   void insert(T dt) throws Exception {
 		 ResponseDTO rdt= (ResponseDTO) dt;
@@ -71,8 +73,10 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	}
 
 	/**
-	 * return one record 
+	 * return one Response record 
+	 * @see dao.PropDAO#select(java.lang.Object)
 	 * @param T template variable. Can be any DTO
+	 * @exception If select failed then exception is thrown
 	 */
 	public   T select(T dt) throws Exception {
 		 ResponseDTO rdt= (ResponseDTO) dt;
@@ -104,8 +108,10 @@ public class ResponseDAO<T> implements PropDAO<T> {
 		 
 
 	/**
-	 * return all the  records 
-	 * 
+	 * return all the Response records 
+	 * @see dao.PropDAO#selectALL(java.lang.Object)
+	 * @param T template variable. Can be any DTO
+	 * @exception If selectALL failed then exception is thrown
 	 */
 	public Collection<T> selectAll() throws Exception {
 		 ResponseDTO rdt= null;
@@ -133,15 +139,14 @@ public class ResponseDAO<T> implements PropDAO<T> {
 					    rdt.setAdvertRefId(Integer.parseInt(prop.getProperty("advertId"+str)));
 						arResponseDTO.add(rdt);
 				}
-			}
-			
-			 
-			 
+			}			
 		return (Collection<T>) arResponseDTO;
 	}
 
 	/**
-	 * update one record 
+	 * update one Response record 
+	 * @see dao.PropDAO#update(java.lang.Object)
+	 * @exception If update failed then exception is thrown
 	 * @param T template variable. Can be any DTO
 	 */
 	public   void update(T dt) throws Exception {
@@ -182,7 +187,9 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	}
 	
 	/**
-	 * return next id 
+	 * return next Response id 
+	 * @see dao.PropDAO#getNextId(java.lang.Object)
+	 * @exception If getNextId failed then exception is thrown
 	 * @param T template variable. Can be any DTO
 	 */
 	public   int getNextId(T dt) throws IOException{
@@ -205,7 +212,9 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	}
 
 	/**
-	 * delete one record 
+	 * delete one Response record 
+	 * @see dao.PropDAO#delete(java.lang.Object)
+	 * @exception If delete failed then exception is thrown
 	 * @param T template variable. Can be any DTO
 	 */
 	public void delete(T dt) throws Exception {
