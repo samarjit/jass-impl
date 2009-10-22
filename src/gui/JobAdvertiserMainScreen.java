@@ -60,8 +60,8 @@ public class JobAdvertiserMainScreen extends Frame {
 		completeWindow.add(right);
 		completeWindow.add(getButtonPanel(), "East");				
 		add(completeWindow);	
-		setSize(500, 500);
-		setTitle("Hello");		
+		setSize(800, 500);
+		setTitle("JASS");		
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class JobAdvertiserMainScreen extends Frame {
 	 */
 	private Panel getMainPanel() {
 		mainPanel = new Panel(new BorderLayout()); 
-		mainPanel.setSize(800,500);
+		mainPanel.setSize(900,500);
 		return mainPanel;
 	}
 	
