@@ -4,6 +4,7 @@ import dao.JobAdvertDAOTest;
 import dao.ResponseDAOTest;
 import dto.JobAdvertDTO;
 import dto.JobAdvertDTOTest;
+import dto.ResponseDTOTest;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -24,6 +25,7 @@ public class AllTests extends TestCase {
 	public static Test suite(){
 		TestSuite suite = new TestSuite("Test for JASS package");
 		suite.addTestSuite(ResponseDAOTest.class);
+		suite.addTestSuite(ResponseDTOTest.class);
 		suite.addTestSuite(JobAdvertDTOTest.class);
 		suite.addTestSuite(JobAdvertDAOTest.class);
 		return suite;
