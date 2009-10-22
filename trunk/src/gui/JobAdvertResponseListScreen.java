@@ -122,12 +122,12 @@ public class JobAdvertResponseListScreen extends Panel{
 		pButton.add(getCloseButton());
 		sc.setSize(300, 300);
 		sc.add(gt);
-		pTable.setSize(500, 300);
+		pTable.setSize(800, 300);
 		pTable.add(sc);
 		pMain.setLayout(new GridLayout(2,1));
 		pMain.add(pTable,BorderLayout.NORTH); 
 		pMain.add(pButton,BorderLayout.SOUTH); 
-		pMain.setSize(700,500);
+		pMain.setSize(900,500);
 		pMain.setVisible(true);
 		this.add(pMain);
 		gt.addActionListener(new ActionListener(){
