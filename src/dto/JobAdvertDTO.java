@@ -10,6 +10,12 @@ package dto;
  */
 public class JobAdvertDTO implements PropDTO{
 	
+	public static String STATUS_NEW = "new";
+	public static String STATUS_OBSOLETE = "obsolete";
+	public static String STATUS_WITHDRAWN = "withdrawn";
+	public static String STATUS_FILLED = "filled";
+	
+	
 	private int Id=0;
 	private String cmpnyDesc="";
 	private String jobrefcode="";
@@ -23,6 +29,7 @@ public class JobAdvertDTO implements PropDTO{
 	private String salaryrange="";
 	private String startdate="";
 	private String location="";
+	private String status=STATUS_NEW;
 	private String advertizerref="";
 	
 
@@ -217,6 +224,27 @@ public class JobAdvertDTO implements PropDTO{
 	public String getAdvertizerref() {
 		return advertizerref;
 	}
+	
+	/**
+	 * gets status
+	 * @return status
+	 */
+	public String getStatus() {
+		return status;
+	}
+	
+	
+	/**
+	 * sets status
+	 * @return 
+	 * */
+	public void setStatus (String status) {
+		this.status = status;
+	}
+	
+	
+	
+	
 	/**
 	 * sets advertiser
 	 * @param advertizerref
