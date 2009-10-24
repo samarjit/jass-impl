@@ -59,6 +59,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			prop.setProperty("salaryrange"+i, jdt.getSalaryrange());
 			prop.setProperty("startdate"+i, jdt.getStartdate());
 			prop.setProperty("location"+i, jdt.getLocation());
+			prop.setProperty("status"+i, jdt.getStatus());
 			prop.setProperty("advertizerref"+i, jdt.getAdvertizerref());
 			
 			 
@@ -102,6 +103,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			    jdt.setSalaryrange(prop.getProperty("salaryrange"+i));
 			    jdt.setStartdate(prop.getProperty("startdate"+i));
 			    jdt.setLocation(prop.getProperty("location"+i));
+			    jdt.setLocation(prop.getProperty("status"+i));
 			    jdt.setAdvertizerref(prop.getProperty("advertizerref"+i));
 			}
 			 
@@ -128,7 +130,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 						str = str.substring(str.length()-1,str.length() );
 						jdt= new JobAdvertDTO();
 						jdt.setId(Integer.parseInt(prop.getProperty("id"+str)));
-						jdt.setCmpnyDesc(prop.getProperty("cmpnydesc"+str));
+						//jdt.setCmpnyDesc(prop.getProperty("jobdesc"+str));
 						jdt.setCmpnyDesc(prop.getProperty("cmpnyDesc"+str));
 					    jdt.setJobrefcode(prop.getProperty("jobrefcode"+str));
 					    jdt.setCmpname(prop.getProperty("cmpname"+str));
@@ -141,6 +143,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 					    jdt.setSalaryrange(prop.getProperty("salaryrange"+str));
 					    jdt.setStartdate(prop.getProperty("startdate"+str));
 					    jdt.setLocation(prop.getProperty("location"+str));
+					    jdt.setLocation(prop.getProperty("status"+str));
 					    jdt.setAdvertizerref(prop.getProperty("advertizerref"+str));
 						arJobadvertDTO.add(jdt);
 				}
@@ -190,6 +193,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			prop.setProperty("salaryrange"+i, jdt.getSalaryrange());
 			prop.setProperty("startdate"+i, jdt.getStartdate());
 			prop.setProperty("location"+i, jdt.getLocation());
+			prop.setProperty("status"+i, jdt.getStatus());
 			prop.setProperty("advertizerref"+i, jdt.getAdvertizerref());
 			 
 			fout = new FileOutputStream(JobAdvertDAO.PROPFILE);
@@ -266,6 +270,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			prop.remove("salaryrange"+i) ;
 			prop.remove("startdate"+i) ;
 			prop.remove("location"+i) ;
+			prop.remove("status"+i);
 			prop.remove("advertizerref"+i) ;
 			fout = new FileOutputStream(JobAdvertDAO.PROPFILE);
 			prop.store(fout, "deleted rec no:"+i +" on " + new Date());
