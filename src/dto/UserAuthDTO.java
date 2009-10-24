@@ -19,15 +19,6 @@ public class UserAuthDTO {
 	private String userID;
 	private String pwd;
 
-	/**
-	 * <p> Constructor which creates the User authentication records <p>
-	 * @param userid user name of the user
-	 * @param pwd	password of the user
-	 */
-	public UserAuthDTO(String userid, String pwd) {
-		this.userID = userid;
-		this.pwd = pwd;
-	}
 	
 	/**
 	 * set id
@@ -54,11 +45,21 @@ public class UserAuthDTO {
 	}
 	
 	/**
+	 * set user id
+	 * @param id
+	 * @return nothing
+	 */
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+	
+	/**
 	 * returns the password of the user 
 	 * @return pwd password
 	 */
 	public String getPwd() {
 		return pwd;
 	}
+	
 	
 }
