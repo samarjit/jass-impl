@@ -11,7 +11,7 @@ import dto.*;
  * 
  * 
  * @author Justin Jose
- * @version 0.1	28/09/09  created 
+ * @version 1.0	28/09/09  created 
  * 
  */
 
@@ -20,6 +20,7 @@ public class MainController {
 
 	private JobAdvertiserMainScreen jobadvertMainScreen;
 	private JobAdvertController jobAdvertController;
+	private UserAuthDTO userRec;
 
 	/**
 	 * <p> Constructor which creates MainController <p>
@@ -27,7 +28,10 @@ public class MainController {
 	 */
 	public MainController() {
 		jobadvertMainScreen = new JobAdvertiserMainScreen(this);
-		jobAdvertController = new JobAdvertController(jobadvertMainScreen);
+		jobAdvertController = new JobAdvertController(jobadvertMainScreen, this);
+		userRec = new UserAuthDTO();
+		userRec.setId(2);
+		userRec.setUserID("U1");
 		//load the user properties here 
 	}
 
@@ -36,8 +40,16 @@ public class MainController {
 	 */
 	public void start() {		
 		invokeJobAdvertiserMainScreen();
+		//FIXEME: populate userAuth Rec 
 	}
 
+	/**
+	 * gets the login user authentication
+	 * @return user authentication details
+	 */
+	public UserAuthDTO getUserAuth(){
+		return userRec;
+	}
 	
 	/**
 	 * To display JobAdverMainScreen
