@@ -97,6 +97,7 @@ public class JobAdvertListScreen extends Panel{
 		ScrollPane scr= new ScrollPane();
 		ArrayList<ArrayList<String>> data= new ArrayList<ArrayList<String>>(); 
 		ArrayList<String> headerdata= new ArrayList<String>(); 
+		
 		GTable gt= new GTable();
 		ArrayList<String> row = null;
 
@@ -175,7 +176,6 @@ public class JobAdvertListScreen extends Panel{
 		jobAdvertController.removeTitle();
 		setVisible(false);
 	}	
-
 
 }
 
