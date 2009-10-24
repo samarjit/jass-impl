@@ -72,16 +72,22 @@ public class JobAdvertResponseDetailScreen extends Panel{
 		detailsPanel.add(candidateNameTxt);
 		
 		detailsPanel.add(new Label("Job Seeker Code"));		
+		TextField jsidTxt = new TextField(10);	
+		jsidTxt.setEditable(false);
+		jsidTxt.setText(Integer.toString(response.getJsId()));		
+		detailsPanel.add(jsidTxt);
+		
+		
+		detailsPanel.add(new Label("Job Advert Ref ID"));		
 		TextField advertRefIdTxt = new TextField(10);	
 		advertRefIdTxt.setEditable(false);
-		advertRefIdTxt.setText(Integer.toString(response.getJsId()));		
+		advertRefIdTxt.setText(Integer.toString(response.getAdvertRefId()));		
 		detailsPanel.add(advertRefIdTxt);
 		
 		detailsPanel.add(new Label("Job Title"));		
 		TextField jobTText = new TextField(10);
-		advertRefIdTxt.setEditable(false);
-		//FIXME to populate jobadvert title using ref id.
-		jobTText.setText("Job Title");		
+		advertRefIdTxt.setEditable(false);		
+		jobTText.setText(jobAdvertController.getJobAdvertTitle(response.getAdvertRefId()));		
 		detailsPanel.add(jobTText);
 		
 		
@@ -127,6 +133,7 @@ public class JobAdvertResponseDetailScreen extends Panel{
 		ActionListener listner = new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {				
 				closePanel();
+				jobAdvertController.invokeResponseListScreen();
 			}
 		};
 		btn.addActionListener(listner);
