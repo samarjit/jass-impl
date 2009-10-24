@@ -83,6 +83,7 @@ public class JobAdvertDAOTest extends TestCase{
 		dto.setStartdate("12/12/2009");
 		dto.setTechskills("Tech skills java");
 		dto.setCmpname("MY Company");
+		dto.setStatus(JobAdvertDTO.STATUS_NEW);
 		try {
 			dao.insert(dto);
 			JobAdvertDTO dt = dao.select(dto);
@@ -117,6 +118,7 @@ public class JobAdvertDAOTest extends TestCase{
 		dto.setStartdate("12/12/2009");
 		dto.setTechskills("Tech skills java");
 		dto.setCmpname("MY Company");
+		dto.setStatus(JobAdvertDTO.STATUS_NEW);
 		try {
 			dao.insert(dto);
 			dto.setId(2);
@@ -153,6 +155,7 @@ public class JobAdvertDAOTest extends TestCase{
 		dto.setStartdate("12/12/2009");
 		dto.setTechskills("Tech skills java");
 		dto.setCmpname("MY Company");
+		dto.setStatus(JobAdvertDTO.STATUS_NEW);
 		try {
 			dao.insert(dto);
 			dto.setCmpname("somediffcompany");
@@ -203,6 +206,7 @@ public class JobAdvertDAOTest extends TestCase{
 		dto.setCmpname("some cmpny name");
 		dto.setDepartment("some department");
 		dto.setJobdesc("some desc");
+		dto.setStatus(JobAdvertDTO.STATUS_NEW);
 		
 		try {
 			dao.insert(dto);
