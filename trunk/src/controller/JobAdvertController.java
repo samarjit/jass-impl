@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import dao.ResponseDAO;
 import dto.JobAdvertDTO;
 import dto.ResponseDTO;
+import dao.JobAdvertDAO;
 
 import gui.AddJobAdvertScreen;
 import gui.JobAdvertDetailScreen;
@@ -49,8 +50,20 @@ public class JobAdvertController {
 	/**
 	 * Disply Add Job Advert Detail Screen
 	 */
-	public void invokeJobAdvertDetailScreen(){
-		JobAdvertDetailScreen advertDetailScreen = new JobAdvertDetailScreen(this);
+	public void invokeJobAdvertDetailScreen(int selId){
+
+		System.out.println("SelId"+selId);
+		//Get the selected Response and pass to detail screen for display.
+		JobAdvertDTO jobadvert = new JobAdvertDTO();
+		jobadvert.setId(selId);
+		JobAdvertDAO<JobAdvertDTO> jdao = new JobAdvertDAO<JobAdvertDTO>();
+		try {
+			jdao.select(jobadvert);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		JobAdvertDetailScreen advertDetailScreen = new JobAdvertDetailScreen(this, jobadvert);
 		jobadvertMainScreen.setMainPanel(advertDetailScreen, "Job Advert Detail");
 	}
 
@@ -59,9 +72,14 @@ public class JobAdvertController {
 	 */
 	public void invokeJobAdvertListScreen(){
 		
-		//FIXME populate jobAdvertList
+		JobAdvertDAO<JobAdvertDTO> alljobadvert= new JobAdvertDAO<JobAdvertDTO>();
+		try {
+			jobAdvertList=(ArrayList<JobAdvertDTO>)alljobadvert.selectAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		JobAdvertListScreen jobAdvertListScreen = new JobAdvertListScreen(this);
+		JobAdvertListScreen jobAdvertListScreen = new JobAdvertListScreen(this,jobAdvertList);
 		jobadvertMainScreen.setMainPanel(jobAdvertListScreen, "Job Advert List");
 	}
 
@@ -135,6 +153,15 @@ public class JobAdvertController {
 		//  adDAO.delete(adDTO);
 		 System.out.println(adDAO.selectAll());
 	}*/
+	
+	
+	/**
+	 * give back reference of Job Advertised main screen
+	 * @return JobAdvertiserMainScreen
+	 */
+	public JobAdvertiserMainScreen getJobAdvertMainScreen(){
+		return jobadvertMainScreen;
+	}
 
 
 }
