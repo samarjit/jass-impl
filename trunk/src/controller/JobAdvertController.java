@@ -13,9 +13,10 @@ import gui.JobAdvertListScreen;
 import gui.JobAdvertResponseDetailScreen;
 import gui.JobAdvertResponseListScreen;
 import gui.JobAdvertiserMainScreen;
+import gui.MessageDialog;
 
 
-/*
+/**
  * <p> <b>JobAdvertController</b> This class controlls all the job 
  * advert related actions. </p> 
  * 
@@ -27,15 +28,29 @@ import gui.JobAdvertiserMainScreen;
 public class JobAdvertController {
 
 	private JobAdvertiserMainScreen jobadvertMainScreen;
+	private JobAdvertDetailScreen advertDetailScreen;
+	private JobAdvertResponseDetailScreen jobAdvertResponseDetailScreen;
+	private JobAdvertResponseListScreen jobAdvertResponseListScreen;
+	private JobAdvertListScreen jobAdvertListScreen;
+	private MainController mainController;
 	private ArrayList<ResponseDTO> responseList;
 	private ArrayList<JobAdvertDTO> jobAdvertList;
 
 	/**
 	 * constructor
 	 */
-	public JobAdvertController(JobAdvertiserMainScreen jobadvertMainScreen) {
+	public JobAdvertController(JobAdvertiserMainScreen jobadvertMainScreen, MainController mainController) {
 		this.jobadvertMainScreen = jobadvertMainScreen;
+		this.mainController = mainController;
 		responseList = new ArrayList<ResponseDTO>();
+		jobAdvertList = new ArrayList<JobAdvertDTO>();
+		
+		updateResponseList();
+		updateJobAdvertList();
+		
+		jobAdvertResponseListScreen = new JobAdvertResponseListScreen(this,responseList);
+		jobAdvertListScreen = new JobAdvertListScreen(this,jobAdvertList);
+		
 	}
 
 
@@ -63,7 +78,7 @@ public class JobAdvertController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-		JobAdvertDetailScreen advertDetailScreen = new JobAdvertDetailScreen(this, jobadvert);
+		advertDetailScreen = new JobAdvertDetailScreen(this, jobadvert);
 		jobadvertMainScreen.setMainPanel(advertDetailScreen, "Job Advert Detail");
 	}
 
@@ -71,35 +86,44 @@ public class JobAdvertController {
 	 * Disply Add Job Advert List Screen
 	 */
 	public void invokeJobAdvertListScreen(){
-		
+		jobadvertMainScreen.setMainPanel(jobAdvertListScreen, "Job Advert List");
+		//FIXME:refresh the list
+	}
+
+	/**
+	 * update the jobadvert list from property file
+	 */
+	private void updateJobAdvertList() {
 		JobAdvertDAO<JobAdvertDTO> alljobadvert= new JobAdvertDAO<JobAdvertDTO>();
 		try {
 			jobAdvertList=(ArrayList<JobAdvertDTO>)alljobadvert.selectAll();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
-		JobAdvertListScreen jobAdvertListScreen = new JobAdvertListScreen(this,jobAdvertList);
-		jobadvertMainScreen.setMainPanel(jobAdvertListScreen, "Job Advert List");
+		}		
 	}
+
 
 	/**
 	 * Disply Add Job Advert Response List Screen
 	 */
 	public void invokeResponseListScreen(){
-		
+		jobadvertMainScreen.setMainPanel(jobAdvertResponseListScreen, "Job Advert Response List");
+		//FIXME:refresh the list
+	}
+
+	/**
+	 * update the Response list from property file
+	 */
+	private void updateResponseList() {
 		ResponseDAO<ResponseDTO> allresponse= new ResponseDAO<ResponseDTO>();
 		try {
 			responseList=(ArrayList<ResponseDTO>)allresponse.selectAll();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-                 	
-        JobAdvertResponseListScreen jobAdvertResponseListScreen = new JobAdvertResponseListScreen(this,responseList);
-		jobadvertMainScreen.setMainPanel(jobAdvertResponseListScreen, "Job Advert Response List");
-
+		}	
 	}
-
+	
+	
 	/**
 	 * Disply Add Job Advert Response Detail Screen
 	 */
@@ -116,7 +140,7 @@ public class JobAdvertController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-		JobAdvertResponseDetailScreen jobAdvertResponseDetailScreen = new JobAdvertResponseDetailScreen(this, response);
+		jobAdvertResponseDetailScreen = new JobAdvertResponseDetailScreen(this, response);
 		jobadvertMainScreen.setMainPanel(jobAdvertResponseDetailScreen, "Job Advert Response Detail");
 	}
 
@@ -128,31 +152,6 @@ public class JobAdvertController {
 		jobadvertMainScreen.removeTitle();
 	}
 	
-	/*public static void main(String[] args) throws Exception {
-		 JobAdvertDTO adDTO = new JobAdvertDTO();
-		 adDTO.setId(6);
-		 adDTO.setAdDesc("Some stupid BPO");
-		 adDTO.setCmpnyDesc("Doesnt matter");
-
-		 JobAdvertDAO<JobAdvertDTO> adDAO = new JobAdvertDAO<JobAdvertDTO>();
-		 try {
-//		 	adDAO.insert(adDTO);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println("Created a record");
-
-		 JobAdvertDTO searchDTO = new JobAdvertDTO();
-		 searchDTO.setId(1);
-		 System.out.println(adDAO.select(searchDTO ));
-
-
-		 System.out.println("Next suitable Id="+adDAO.getNextId(adDTO));
-
-		adDAO.update(adDTO);
-		//  adDAO.delete(adDTO);
-		 System.out.println(adDAO.selectAll());
-	}*/
 	
 	
 	/**
@@ -163,5 +162,83 @@ public class JobAdvertController {
 		return jobadvertMainScreen;
 	}
 
-
+	/**
+	 * modify jobadvert details
+	 */
+	public void processModify(){
+		String id = advertDetailScreen.getJobIdTxt().getText();
+		String title = advertDetailScreen.getAdvertTitleTxt().getText();
+		String desc = advertDetailScreen.getJobTDescTxt().getText();
+		String owner = advertDetailScreen.getJobAdvertiserTxt().getText();
+		String jobrefcode = advertDetailScreen.getJobrefcodeTxt().getText();
+		String cmpname = advertDetailScreen.getCmpnameTxt().getText();
+		String  cmpDesc= advertDetailScreen.getCmpnyDescTxt().getText();		
+		String department = advertDetailScreen.getDepartmentTxt().getText();
+		String techskills = advertDetailScreen.getTechskillsTxt().getText();
+		String mgmtskills = advertDetailScreen.getMgmtSkillsTxt().getText();
+		String salary = advertDetailScreen.getSalaryrangeTxt().getText();
+		String yrsExp = advertDetailScreen.getNoyrexpTxt().getText();
+		String startdate = advertDetailScreen.getStartdateTxt().getText();
+		String status = advertDetailScreen.getStatusTxt().getText();
+		String location = advertDetailScreen.getLocationTxt().getText();
+		
+		
+		System.out.println("id= " +id +", title=" + title +", desc =" + desc);
+		
+		JobAdvertDAO<JobAdvertDTO> jdao= new JobAdvertDAO<JobAdvertDTO>();
+		JobAdvertDTO jdto = new JobAdvertDTO();
+		jdto.setId(Integer.parseInt(id));
+		jdto.setJobtitle(title);
+		jdto.setJobdesc(desc);
+		jdto.setAdvertizerref(owner);
+		jdto.setCmpname(cmpname);
+		jdto.setCmpnyDesc(cmpDesc);
+		jdto.setDepartment(department);
+		jdto.setStatus(status);
+		jdto.setLocation(location);
+		jdto.setSalaryrange(salary);
+		jdto.setStartdate(startdate);
+		jdto.setTechskills(techskills);
+		jdto.setMgmtskills(mgmtskills);
+		jdto.setJobrefcode(jobrefcode);
+		jdto.setNoyrexp(yrsExp);
+		
+		if(isOwner(owner)){
+			try {
+				jdao.update(jdto);
+			} catch (Exception e) {
+				System.out.println("exception in select job advert dto");
+				e.printStackTrace();
+			}
+			new MessageDialog(jobadvertMainScreen,"Success","Record updated successfully");
+			updateJobAdvertList();
+		}
+		else
+		{
+			new MessageDialog(jobadvertMainScreen,"Error","owner does not match");
+		}
+		
+	}
+	
+	private boolean isOwner(String owner){
+		boolean ownership = false;
+		if(mainController.getUserAuth().getUserID().equals(owner))
+			ownership =  true;
+		else
+			ownership = false;
+		return ownership;
+	}
+	
+	public String getJobAdvertTitle(int advertRefId){
+		JobAdvertDTO jdto = new JobAdvertDTO();
+		JobAdvertDAO<JobAdvertDTO> jdao= new JobAdvertDAO<JobAdvertDTO>();
+		jdto.setId(advertRefId);
+		try {
+			jdto = jdao.select(jdto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return jdto.getJobtitle();
+	}
+	
 }
