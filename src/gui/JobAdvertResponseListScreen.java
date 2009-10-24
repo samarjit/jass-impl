@@ -20,7 +20,6 @@ public class JobAdvertResponseListScreen extends Panel{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JobAdvertController jobAdvertController;
-	private JobAdvertiserMainScreen jobAdvertisermainscreen;
 	private ArrayList<ResponseDTO> allresponseList;
 	private Button btnView;
 	private Button btnClose;
@@ -54,7 +53,7 @@ public class JobAdvertResponseListScreen extends Panel{
 				}
 				else
 				{
-					 new MessageDialog(jobAdvertisermainscreen,"Error","Please select a record.");
+					 new MessageDialog(jobAdvertController.getJobAdvertMainScreen(),"Error","Please select a record.");
 				}
 			}
 		});
