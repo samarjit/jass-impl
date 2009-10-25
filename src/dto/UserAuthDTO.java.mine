@@ -1,0 +1,68 @@
+
+
+package dto;
+
+
+/**
+ * <p> <b>UserAuthDTO</b> holds the information about user. </p> 
+ * 
+ * 
+ * @author Justin Jose
+ * @version 1.0	28/09/09
+ * 
+ */
+
+
+public class UserAuthDTO {
+
+	
+	private int id;
+	private String userID;
+	private String pwd;
+
+	/**
+	 * <p> Constructor which creates the User authentication records <p>
+	 * @param userid user name of the user
+	 * @param pwd	password of the user
+	 */
+	
+	/**
+	 * set id
+	 * @param id
+	 */
+	public void setId(int id){
+		this.id = id;
+	}
+	
+	/**
+	 * returns id
+	 * @return id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	public String getUserID() {
+		return userID;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+	
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	
+	/**
+	 * returns the user name 
+	 * @return userID user name of the user
+	 */
+
+	
+}
