@@ -12,28 +12,34 @@ import dto.JobAdvertDTO;
 import dto.ResponseDTO;
 
 
-
+/**
+ *  <p> <b>JobAdvertListScreen</b> This class handles gui for the job advert list
+ * </p>
+ * @author Sarita Singh, Justin Jose
+ *
+ */
 
 public class JobAdvertListScreen extends Panel{
 
 	private static final long serialVersionUID = 1L;
 
 	private JobAdvertController jobAdvertController;
-
-	private ArrayList<JobAdvertDTO> alljobadvertList;
+	private GTable advertGT;
+	private ScrollPane scp;
 	private int jobid;
+		
+	
 	private boolean itemSelectionFlag=false;
 
 	public JobAdvertListScreen(JobAdvertController jobAdvertController,ArrayList<JobAdvertDTO> jobAdvertList) {
 
 		this.jobAdvertController = jobAdvertController;
-		this.alljobadvertList=(ArrayList<JobAdvertDTO>)jobAdvertList;
 		init();
 	}
 	private void init() {
 
 		Panel pMain = new Panel();
-		Panel pTable= new Panel();
+		Panel pTablePanel= new Panel();
 		Panel pButton =new Panel();
 
 		// adding the view button
@@ -56,108 +62,32 @@ public class JobAdvertListScreen extends Panel{
 
 		pButton.add(btnview);
 
+		// adding the withdraw button		
+		pButton.add(getWithDrawBtn());
 
-		// adding the withdraw button
-		Button btnwithdraw =new Button ("WithDraw");
-		btnwithdraw.setActionCommand("WithDraw");
-		ActionListener listenerx =new ActionListener(){
-			public void actionPerformed ( ActionEvent e){
-				System.exit(0);
-			}
-		};
+		// adding the delete button		
+		pButton.add(getDeleteButton());
 
-		btnwithdraw.addActionListener(listenerx);
+		// adding the close button		
+		pButton.add(getCloseButton());
 
-		pButton.add(btnwithdraw);
 
-		// adding the delete button
-		Button btndelete = new Button("Delete");
-		btndelete.setActionCommand("Delete");
-		ActionListener listenery= new ActionListener(){
-			public void actionPerformed ( ActionEvent e){
-				System.exit(0);
-			}
-		};		
-		btndelete.addActionListener(listenery);		 
-		pButton.add(btndelete);
-
-		// adding the close button
-		Button btnclose = new Button("Close");
-		btnclose.setActionCommand("Close");
-		ActionListener listenerz= new ActionListener(){
-			public void actionPerformed ( ActionEvent e){
-				closePanel();
-			}
-		};
-
-		btnclose.addActionListener(listenerz);
-
-		pButton.add(btnclose);
-
-		ScrollPane scr= new ScrollPane();
-		ArrayList<ArrayList<String>> data= new ArrayList<ArrayList<String>>(); 
-		ArrayList<String> headerdata= new ArrayList<String>(); 
+		scp= new ScrollPane();		
+		scp.setSize(600,300);
 		
-		GTable gt= new GTable();
-		ArrayList<String> row = null;
 
-		JobAdvertDTO jobadvertDTO= null;
+		pTablePanel.setSize(500,500);
+		pTablePanel.add(scp);
 
-
-		for(int i=0;i<alljobadvertList.size();i++)
-		{
-			row =  new ArrayList<String>();
-			jobadvertDTO = alljobadvertList.get(i);
-
-			row.add(String.valueOf(jobadvertDTO.getId()));
-			row.add(jobadvertDTO.getJobtitle());
-			row.add(String.valueOf(jobadvertDTO.getJobdesc()));
-
-
-			row.add(String.valueOf(jobadvertDTO.getMgmtskills()));
-			row.add(String.valueOf(jobadvertDTO.getTechskills()));
-			row.add(String.valueOf(jobadvertDTO.getNoyrexp()));
-			row.add(String.valueOf(jobadvertDTO.getSalaryrange()));
-
-			row.add(String.valueOf(jobadvertDTO.getStartdate()));
-			row.add(String.valueOf(jobadvertDTO.getLocation()));
-			row.add(String.valueOf(jobadvertDTO.getCmpname()));
-			row.add(String.valueOf(jobadvertDTO.getCmpnyDesc()));
-			row.add(String.valueOf(jobadvertDTO.getStatus()));
-			data.add(row);
-
-		}
-
-		headerdata.add("Job Id");
-		headerdata.add("Job Title");
-		headerdata.add("Job Description");
-		headerdata.add("Management Skills");
-		headerdata.add("Technical Skills");
-		headerdata.add("Number of years of experience");
-		headerdata.add("Salary Range");
-		headerdata.add("Required Start Date");
-		headerdata.add("Location");		
-		headerdata.add("Company Name");
-		headerdata.add("Company Description");
-		headerdata.add("Status");
-
-		try{
-			gt.createGTable(headerdata,data);
-		}catch(Exception e1){
-			e1.printStackTrace();
-		}
-
-		scr.add(gt);
-		scr.setSize(300,300);
-		pTable.setSize(500,500);
-		pTable.add(scr);
 		pMain.setLayout(new GridLayout(2,1));
-		pMain.add(pTable,BorderLayout.NORTH);
+		pMain.add(pTablePanel,BorderLayout.NORTH);
 		pMain.setSize(700,500);
 		pMain.setVisible(true);
 		pMain.add(pButton, BorderLayout.SOUTH);
 		this.add(pMain);
-		gt.addActionListener(new ActionListener(){
+		
+		advertGT= new GTable();
+		advertGT.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				String cmd=e.getActionCommand();
 				if(!(cmd.indexOf("headcell")>-1)) {
@@ -168,14 +98,122 @@ public class JobAdvertListScreen extends Panel{
 				}
 			}
 		});
+		refreshTable();
 
 	}
 
-	//close the jobadvertListscreen
+	/**
+	 * get the with draw button
+	 * @return
+	 */
+	private Component getWithDrawBtn(){
+		Button btnwithdraw =new Button ("WithDraw");
+		btnwithdraw.setActionCommand("WithDraw");
+		ActionListener listenerx =new ActionListener(){
+			public void actionPerformed ( ActionEvent e){
+				if(itemSelectionFlag==true)
+				{
+					jobAdvertController.withdrawJobAdvert(jobid);	
+				}
+				else
+				{
+					new MessageDialog(jobAdvertController.getJobAdvertMainScreen(),"Error","Please select a record.");
+				}
+			}
+
+		};
+
+		btnwithdraw.addActionListener(listenerx);
+		return btnwithdraw;
+	}
+	
+	/**
+	 * get the delete button
+	 * @return
+	 */
+	private Component getDeleteButton(){
+		Button btndelete = new Button("Delete");
+		btndelete.setActionCommand("Delete");
+		ActionListener listenery= new ActionListener(){
+			public void actionPerformed ( ActionEvent e){
+				if(itemSelectionFlag==true)
+				{
+					jobAdvertController.deleteJobAdvert(jobid);	
+				}
+				else
+				{
+					new MessageDialog(jobAdvertController.getJobAdvertMainScreen(),"Error","Please select a record.");
+				}
+			}
+		};		
+		btndelete.addActionListener(listenery);		 
+		return btndelete;
+	}
+	
+	
+	private Component getCloseButton(){
+		Button btnclose = new Button("Close");
+		btnclose.setActionCommand("Close");
+		ActionListener listenerz= new ActionListener(){
+			public void actionPerformed ( ActionEvent e){
+				closePanel();
+			}
+		};
+
+		btnclose.addActionListener(listenerz);
+		return btnclose;
+	}
+	
+	/**
+	 * close the jobadvertListscreen
+	 */
 	private void closePanel(){
 		jobAdvertController.removeTitle();
 		setVisible(false);
-	}	
+	}
+
+	/**
+	 * refresh the gtable with advertlist values.
+	 */
+	public void refreshTable(){
+
+		ArrayList<ArrayList<String>> data= new ArrayList<ArrayList<String>>(); 
+		ArrayList<String> headerdata= new ArrayList<String>(); 		
+		ArrayList<String> row = null;
+
+		JobAdvertDTO jobadvertDTO= null;
+
+		for(int i=0;i<jobAdvertController.getJobAdvertList().size();i++)
+		{
+			row =  new ArrayList<String>();
+			jobadvertDTO = jobAdvertController.getJobAdvertList().get(i);
+
+			row.add(String.valueOf(jobadvertDTO.getId()));
+			row.add(jobadvertDTO.getJobtitle());
+			row.add(String.valueOf(jobadvertDTO.getJobdesc()));
+			row.add(String.valueOf(jobadvertDTO.getTechskills()));
+			row.add(String.valueOf(jobadvertDTO.getNoyrexp()));
+			row.add(String.valueOf(jobadvertDTO.getLocation()));
+			row.add(String.valueOf(jobadvertDTO.getStatus()));
+			data.add(row);
+		}
+
+		headerdata.add("Job Id");
+		headerdata.add("Job Title");
+		headerdata.add("Job Description");
+		headerdata.add("Tech Skills");
+		headerdata.add("Experience(yrs)");
+		headerdata.add("Location");		
+		headerdata.add("Status");
+
+		try{
+			advertGT.createGTable(headerdata,data);
+		}catch(Exception e1){
+			e1.printStackTrace();
+		}
+		scp.add(advertGT);
+		itemSelectionFlag = false;
+	}
 
 }
 
