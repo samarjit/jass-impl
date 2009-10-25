@@ -8,7 +8,7 @@ import controller.JobAdvertController;
 import dto.ResponseDTO;
 
 /**
- *  <p> <b>JobAdvertResponseDetailScreen</b> This class handles gui for the job advertiser main window
+ *  <p> <b>JobAdvertResponseDetailScreen</b> This class handles gui for the job response details
  * </p>
  * @author Justin Jose
  *
