@@ -4,8 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Set;
+
 
 import controller.JobAdvertController;
 import dto.ResponseDTO;
@@ -19,9 +18,11 @@ public class JobAdvertResponseListScreen extends Panel{
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private JobAdvertController jobAdvertController;
 	private Button btnView;
 	private Button btnClose;
+	
 	private int responseid;
 	private boolean itemSelectionFlag=false;
 	
@@ -105,7 +106,7 @@ public class JobAdvertResponseListScreen extends Panel{
 
 		}
 		headerdata.add("Response ID");
-		headerdata.add(" Candidate Name ");
+		headerdata.add("Candidate Name ");
 		headerdata.add(" Job Advert Code ");
 		headerdata.add("      Position        ");
 
@@ -119,14 +120,16 @@ public class JobAdvertResponseListScreen extends Panel{
 		pButton.add(getCloseButton());
 		sc.setSize(600, 300);
 		sc.add(gt);
-		pTable.setSize(800, 300);
+		pTable.setSize(1000, 500);
 		pTable.add(sc);
 		pMain.setLayout(new GridLayout(2,1));
 		pMain.add(pTable,BorderLayout.NORTH); 
 		pMain.add(pButton,BorderLayout.SOUTH); 
-		pMain.setSize(900,500);
-		pMain.setVisible(true);
+		pMain.setSize(1000,500);
+		
 		this.add(pMain);
+		this.setSize(1000, 500);
+		this.setVisible(true);
 		gt.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				String cmd=e.getActionCommand();
