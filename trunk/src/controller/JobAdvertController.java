@@ -216,6 +216,7 @@ public class JobAdvertController {
 		else
 		{
 			new MessageDialog(jobadvertMainScreen,"Error","owner does not match");
+			invokeJobAdvertListScreen();
 		}
 		
 	}
