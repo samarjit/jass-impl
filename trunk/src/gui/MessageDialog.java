@@ -17,7 +17,7 @@ public class MessageDialog extends Dialog {
 	 * @param title Title will appear in dialog
 	 * @param msg message
 	 */
-	public MessageDialog (Frame parent, String title,String msg) {
+	public MessageDialog (Frame parent, String title,String msg){
         super (parent,title);
         add ("Center",getMsgPanel(msg));
         initialize(title);
