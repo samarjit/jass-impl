@@ -103,7 +103,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			    jdt.setSalaryrange(prop.getProperty("salaryrange"+i));
 			    jdt.setStartdate(prop.getProperty("startdate"+i));
 			    jdt.setLocation(prop.getProperty("location"+i));
-			    jdt.setLocation(prop.getProperty("status"+i));
+			    jdt.setStatus(prop.getProperty("status"+i));
 			    jdt.setAdvertizerref(prop.getProperty("advertizerref"+i));
 			}
 			 
@@ -143,7 +143,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 					    jdt.setSalaryrange(prop.getProperty("salaryrange"+str));
 					    jdt.setStartdate(prop.getProperty("startdate"+str));
 					    jdt.setLocation(prop.getProperty("location"+str));
-					    jdt.setLocation(prop.getProperty("status"+str));
+					    jdt.setStatus(prop.getProperty("status"+str));
 					    jdt.setAdvertizerref(prop.getProperty("advertizerref"+str));
 						arJobadvertDTO.add(jdt);
 				}
