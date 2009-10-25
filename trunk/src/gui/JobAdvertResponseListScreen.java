@@ -20,7 +20,6 @@ public class JobAdvertResponseListScreen extends Panel{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JobAdvertController jobAdvertController;
-	private ArrayList<ResponseDTO> allresponseList;
 	private Button btnView;
 	private Button btnClose;
 	private int responseid;
@@ -33,8 +32,7 @@ public class JobAdvertResponseListScreen extends Panel{
 	 */	
 	public JobAdvertResponseListScreen(JobAdvertController jobAdvertController, ArrayList<ResponseDTO> responseList) 
 	{
-		this.jobAdvertController = jobAdvertController;
-		this.allresponseList=(ArrayList<ResponseDTO>)responseList;
+		this.jobAdvertController = jobAdvertController;		
 		init();
 	}
 
@@ -93,10 +91,10 @@ public class JobAdvertResponseListScreen extends Panel{
 
 		ResponseDTO jobadvertResponseDTO = null;
 
-		for(int i=0;i<allresponseList.size();i++)
+		for(int i=0;i<jobAdvertController.getJobAdvertResponseList().size();i++)
 		{
 			row =  new ArrayList<String>();
-			jobadvertResponseDTO = allresponseList.get(i);
+			jobadvertResponseDTO = jobAdvertController.getJobAdvertResponseList().get(i);
 
 			row.add( String.valueOf(jobadvertResponseDTO.getId()));
 			row.add(jobadvertResponseDTO.getJsName());
@@ -108,8 +106,8 @@ public class JobAdvertResponseListScreen extends Panel{
 		}
 		headerdata.add("Response ID");
 		headerdata.add(" Candidate Name ");
-		headerdata.add("Job Advert Code");
-		headerdata.add(" Position ");
+		headerdata.add(" Job Advert Code ");
+		headerdata.add("      Position        ");
 
 		try {
 			gt.createGTable(headerdata, data);
@@ -119,7 +117,7 @@ public class JobAdvertResponseListScreen extends Panel{
 		}
 		pButton.add(getViewButton());
 		pButton.add(getCloseButton());
-		sc.setSize(300, 300);
+		sc.setSize(600, 300);
 		sc.add(gt);
 		pTable.setSize(800, 300);
 		pTable.add(sc);
@@ -134,8 +132,7 @@ public class JobAdvertResponseListScreen extends Panel{
 				String cmd=e.getActionCommand();
 				if(!(cmd.indexOf("headcell")>-1)) {
 					String[] selText= cmd.substring(cmd.indexOf(':')+1).split("~#");
-					responseid = Integer.valueOf(selText[0]);
-					System.out.println("Responseid"+responseid);
+					responseid = Integer.valueOf(selText[0]);					
 					itemSelectionFlag = true;
 				}
 			}
