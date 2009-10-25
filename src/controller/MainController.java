@@ -31,7 +31,7 @@ public class MainController {
 		jobAdvertController = new JobAdvertController(jobadvertMainScreen, this);
 		userRec = new UserAuthDTO();
 		userRec.setId(2);
-		userRec.setUserID("U1");
+		userRec.setUserID("2");
 		//load the user properties here 
 	}
 
