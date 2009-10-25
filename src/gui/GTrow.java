@@ -20,7 +20,7 @@ import java.util.Formatter;
 
 
 /**
- * <p><b>GTrow</b> class is used by <@link GTable> to internally create table rows. Although the 
+ * <p><b>GTrow</b> class is used by {@link gui.GTable} to internally create table rows. Although the 
  * table creation is implemented inside GTable class it can be used directly by client for more granular control
  * for example: setting the widths of a column as wished by client will require to use this class directly to
  * create table rows of particular width. </p>
@@ -135,6 +135,7 @@ public class GTrow{
 				actionHappened(e.getActionCommand());
 				parentElement.actionOccured(e);
 			}});
+		parentElement.setCurY(0);
 		cells.add(tc);currentCellId++;curX += width;
 	}
 	/**
