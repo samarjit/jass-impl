@@ -25,7 +25,6 @@ public class JobAdvertiserMainScreen extends Frame {
 
 
 	private MainController mainController;
-	private JobAdvertController jobadvertController;
 	
 	private Panel mainPanel;
 	private Panel mainTitlePanel;
@@ -80,6 +79,10 @@ public class JobAdvertiserMainScreen extends Frame {
 		return btPanel;
 	}
 
+	/**
+	 * create close button
+	 * @return
+	 */
 	private Component getCloseButton() {
 		Button btn = new Button("Close");
 		ActionListener listner = new ActionListener() {			
