@@ -22,6 +22,7 @@ public class MainController {
 	private JobAdvertController jobAdvertController;
 	private UserAuthDTO userRec;
 
+	private static int USER_ID = 1;
 	/**
 	 * <p> Constructor which creates MainController <p>
 	 * 
@@ -29,10 +30,7 @@ public class MainController {
 	public MainController() {
 		jobadvertMainScreen = new JobAdvertiserMainScreen(this);
 		jobAdvertController = new JobAdvertController(jobadvertMainScreen, this);
-		userRec = new UserAuthDTO();
-		userRec.setId(2);
-		userRec.setUserID("2");
-		//load the user properties here 
+		userRec = new UserAuthDTO();		
 	}
 
 	/**
@@ -40,7 +38,13 @@ public class MainController {
 	 */
 	public void start() {		
 		invokeJobAdvertiserMainScreen();
-		//FIXEME: populate userAuth Rec 
+		UserAuthDAO<UserAuthDTO> udao= new UserAuthDAO<UserAuthDTO>();
+		userRec.setId(USER_ID);
+		try {
+			userRec = udao.select(userRec);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
 	}
 
 	/**
