@@ -52,14 +52,15 @@ public class UserAuthDTO {
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
-	
-	/**
-	 * returns the password of the user 
-	 * @return pwd password
-	 */
+
 	public String getPwd() {
 		return pwd;
 	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	
 	
 	
 }
