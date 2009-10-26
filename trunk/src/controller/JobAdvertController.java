@@ -17,7 +17,7 @@ import gui.MessageDialog;
 
 
 /**
- * <p> <b>JobAdvertController</b> This class controlls all the job 
+ * <p> <b>JobAdvertController</b> This class controls all the job 
  * advert related actions such as show list of adverts, view advert details,
  * delete, modify,withdraw job adverts. </p> 
  * 
@@ -51,7 +51,7 @@ public class JobAdvertController {
 
 
 	/**
-	 * Disply Add Job Advert Screen
+	 * Display Add Job Advert Screen
 	 */
 	public void invokeAddJobAdvertScreen(){
 		AddJobAdvertScreen addjobScreen = new AddJobAdvertScreen(this);
@@ -59,7 +59,7 @@ public class JobAdvertController {
 	}
 
 	/**
-	 * Disply Add Job Advert Detail Screen
+	 * Display Add Job Advert Detail Screen
 	 */
 	public void invokeJobAdvertDetailScreen(int selId){
 
@@ -77,7 +77,7 @@ public class JobAdvertController {
 	}
 
 	/**
-	 * Disply Add Job Advert List Screen
+	 * Display Add Job Advert List Screen
 	 */
 	public void invokeJobAdvertListScreen(){
 		jobAdvertListScreen = new JobAdvertListScreen(this,jobAdvertList);
@@ -105,7 +105,7 @@ public class JobAdvertController {
 
 
 	/**
-	 * Disply Add Job Advert Response List Screen
+	 * Display Add Job Advert Response List Screen
 	 */
 	public void invokeResponseListScreen(){
 		jobAdvertResponseListScreen = new JobAdvertResponseListScreen(this,responseList);
@@ -126,7 +126,7 @@ public class JobAdvertController {
 	
 	
 	/**
-	 * Disply Add Job Advert Response Detail Screen
+	 * Display Add Job Advert Response Detail Screen
 	 */
 	public void invokeDetailResponseScreen(int selId){
 		
@@ -151,8 +151,7 @@ public class JobAdvertController {
 		jobadvertMainScreen.removeTitle();
 	}
 	
-	
-	
+		
 	/**
 	 * give back reference of Job Advertised main screen
 	 * @return JobAdvertiserMainScreen
@@ -301,7 +300,7 @@ public class JobAdvertController {
 	}
 	
 	/**
-	 * get the jobadvert title from advertiser reference id
+	 * get the job advert title from advertiser reference id
 	 * @param advertRefId
 	 * @return
 	 */
