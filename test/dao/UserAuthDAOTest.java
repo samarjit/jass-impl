@@ -12,12 +12,23 @@ import org.junit.Test;
 
 import dto.UserAuthDTO;
 
+/**
+ * <p> <b> ResponseDAOTest </b> Test class for ResponseDAO {@link dao.ResponseDAO} class</p>
+ * 
+ * @author  
+ * @version 1.0 28/09/09
+ *
+ */
 public class UserAuthDAOTest extends TestCase{
 	
 	private int id;
 	private String uid;
 	private String pwd;
 	
+	/**
+	 * initialization. Executed before each test.
+	 * @throws java.lang.Exception
+	 */	
 	@Before
 	public void setUp() throws Exception {
 		
@@ -36,13 +47,18 @@ public class UserAuthDAOTest extends TestCase{
 	}
 
 	/**
+	 * Executed after each test.
 	 * @throws java.lang.Exception
-	 */
+	 */	
 	@After
 	public void tearDown() throws Exception {
 		
 		 
 	}
+	
+	/**
+	 * Test method for {@link dao.UserAuthDAO#insert(java.lang.Object)}.
+	 */		
 	@Test
 	public void testInsert()
 	{
@@ -63,6 +79,10 @@ public class UserAuthDAOTest extends TestCase{
 		}
 	}
 	
+	
+	/**
+	 * Test method for {@link dao.UserAuthDAO#delete(java.lang.Object)}.
+	 */	
 	@Test
 	public void testDelete()
 	{
@@ -109,7 +129,9 @@ public class UserAuthDAOTest extends TestCase{
 		
 	}
 	
-	
+	/**
+	 * Test method for {@link dao.UserAuthDAO#update(java.lang.Object)}.
+	 */	
 	@Test
 	public void testUpdate()
 	{
@@ -136,6 +158,10 @@ public class UserAuthDAOTest extends TestCase{
 		
 	}
 	
+	
+	/**
+	 * Test method for {@link dao.UserAuthDAO#getNextId(java.lang.Object)}.
+	 */	
 	@Test
 	public void testGetNextId()
 	{
@@ -179,6 +205,10 @@ public class UserAuthDAOTest extends TestCase{
 		
 	}
 	
+	
+	/**
+	 * Test method for {@link dao.UserAuthDAO#selectAll()}.
+	 */	
 	@Test
 	public void testSelectAll()
 	{
