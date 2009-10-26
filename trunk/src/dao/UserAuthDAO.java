@@ -51,14 +51,8 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 		fout = new FileOutputStream(UserAuthDAO.PROPFILE);
 		prop.store(fout, "deleted rec no:"+i +" on " + new Date());
 		fout.close();
-	
-	
 }
-	
-
-	}
-
-	
+}
 	public int getNextId(T dt) throws Exception {
 		 UserAuthDTO uadt= (UserAuthDTO) dt;
 		 Properties prop= new Properties();
@@ -111,7 +105,6 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 		}
 	    
 	}
-
 	
 	public T select(T dt) throws Exception {
 		 UserAuthDTO uadt= (UserAuthDTO) dt;
@@ -134,8 +127,6 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 			}			 
 			return  dt;
 	}
-
-
 	public Collection<T> selectAll() throws Exception {
 		 UserAuthDTO uadt= new UserAuthDTO();
 		 Properties prop= new Properties();
