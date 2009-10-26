@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.Set;
@@ -93,7 +94,7 @@ public class CompanyDAO<T> implements PropDAO<T> {
 		{
 			prop.setProperty("id"+i, String.valueOf(cdt.getId()));
 			prop.setProperty("CompanyId"+i, cdt.getCompanyID());
-			prop.setProperty("CompanyNamr"+i,cdt.getCompanyName());
+			prop.setProperty("CompanyName"+i,cdt.getCompanyName());
 			
 			
 			fout = new FileOutputStream(CompanyDAO.PROPFILE);
@@ -116,7 +117,7 @@ public class CompanyDAO<T> implements PropDAO<T> {
 			String str = "";
 			int i=cdt.getId();
 
-			str = prop.getProperty("id"+cdt.getId());
+			str = prop.getProperty("CompanyName"+cdt.getId());
 			if(str == null || "".equals(str))
 			{
 			throw new Exception("Select failed:Record does not exists");
@@ -127,6 +128,41 @@ public class CompanyDAO<T> implements PropDAO<T> {
 				cdt.setCompanyName(prop.getProperty("CompanyName"+i));
 			}			 
 			return  dt;
+	}
+	
+	public T selectIDbyName(T dt) throws Exception{
+		
+		CompanyDTO cdt= (CompanyDTO) dt;
+		 Properties prop= new Properties();
+		 FileInputStream fin =  new FileInputStream(CompanyDAO.PROPFILE);
+		 prop.load(fin);
+		 fin.close();
+		
+		 int i = 0;
+		 int flag = 0;
+		Enumeration e =  prop.keys();
+		while(e.hasMoreElements()){
+			String stra = (String) e.nextElement();
+			if(stra.startsWith("id")){
+				i = Integer.parseInt(stra.substring(2, (stra.length())));
+				
+				if(cdt.getCompanyName().equals(prop.getProperty("CompanyName"+i))){
+					
+					cdt.setCompanyID(prop.getProperty("CompanyId"+i));
+					cdt.setId(i);
+					flag = 1;
+				}
+			}
+		}
+
+		if(flag==1){
+			
+			return dt;
+		
+		}
+		
+		else return null;
+		
 	}
 
 	
