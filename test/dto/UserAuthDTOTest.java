@@ -6,6 +6,12 @@ import org.junit.Before;
 import org.junit.Test;
 import junit.framework.TestCase;
 
+/**
+ * <p><b>JobAdvertDTOTest</b> will be used to test {@link JobAdvertDTO}class</p>
+ * @author 
+ * @version 1.0
+ */
+
 import dto.UserAuthDTO;
 public class UserAuthDTOTest extends TestCase{
 	
@@ -13,7 +19,10 @@ public class UserAuthDTOTest extends TestCase{
 	private String userid;
 	private String password;
 	
-	
+	/**
+	 * initialization. Executed before each test.
+	 * @throws java.lang.Exception
+	 */	
 	@Before
 	public void setUp() throws Exception
 	{
@@ -22,6 +31,11 @@ public class UserAuthDTOTest extends TestCase{
 		 password="12345";
 	     		
 	}
+	
+	/**
+	 * Executed after each test.
+	 * @throws java.lang.Exception
+	 */	
 	@After
 	public void tearDown() throws Exception
 	{
@@ -29,6 +43,10 @@ public class UserAuthDTOTest extends TestCase{
 		
 	}
 	
+	
+/**
+* Test method for {@link dto.UserAuthDTO#getId()}.
+*/	
 @Test
 public void testGetId()
 {
@@ -37,7 +55,10 @@ public void testGetId()
    int testid= userauthdto.getId();
    assertEquals("These two IDs must be the same",Id,testid);
 }
-	
+
+/**
+ * Test method for {@link dto.UserAuthDTO#getUserID()}.
+ */
 @Test
 public void testGetUserId(){
 	   UserAuthDTO userauthdto= new UserAuthDTO();
@@ -46,6 +67,10 @@ public void testGetUserId(){
 	   assertEquals("Userid and testuserid must be the same.",userid,testuserid);
 }
 
+
+/**
+ * Test method for {@link dto.UserAuthDTO#getPwd()}.
+ */
 @Test
 public void testGetPassword(){
 	   UserAuthDTO userauthdto= new UserAuthDTO();
