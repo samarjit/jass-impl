@@ -1,6 +1,6 @@
 package dto;
 
-import static org.junit.Assert.*;
+
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.After;
@@ -32,6 +32,11 @@ public class JobAdvertDTOTest extends TestCase{
 	private String status;
 	private String advertizerref;
 	
+	
+	/**
+	 * initialization. Executed before each test.
+	 * @throws java.lang.Exception
+	 */
 	@Before
 	public void setUp() throws Exception
 	{
@@ -52,6 +57,12 @@ public class JobAdvertDTOTest extends TestCase{
 		 advertizerref="Advref-3";
 		
 	}
+	
+	
+	/**
+	 * Executed after each test.
+	 * @throws java.lang.Exception
+	 */	
 	@After
 	public void tearDown() throws Exception
 	{
@@ -59,6 +70,9 @@ public class JobAdvertDTOTest extends TestCase{
 		
 	}
 	
+/**
+ * Test method for {@link dto.JobAdvertDTO#getId()}.
+ */
 @Test
 public void testGetId()
 {
@@ -68,7 +82,10 @@ public void testGetId()
    assertEquals("These two IDs must be the same",Id,testid);
    
 }
-	
+
+/**
+ * Test method for {@link dto.JobAdvertDTO#getCmpnyDesc()}.
+ */	
 @Test
 public void testGetCompanyDesc(){
 	JobAdvertDTO jobadvertDTO = new JobAdvertDTO();
@@ -77,6 +94,9 @@ public void testGetCompanyDesc(){
 	assertEquals("These two company description must be the same",cmpnyDesc,newCompDesc);
 }
 
+/**
+ * Test method for {@link dto.JobAdvertDTO#getJobrefcode()}.
+ */
 @Test
 public void testGetJobrefcode()
 {
@@ -86,6 +106,9 @@ public void testGetJobrefcode()
 	assertEquals("These two job reference codes must be the same",jobrefcode,newjrefcode);
 }
 
+/**
+ * Test method for {@link dto.JobAdvertDTO#getCmpname()}.
+ */
 @Test
 public void testGetCmpName()
 {
@@ -95,6 +118,9 @@ public void testGetCmpName()
 	assertEquals("These two company names must be the same",cmpname,newcmpname);
 }
 
+/**
+ * Test method for {@link dto.JobAdvertDTO#getDepartment()}.
+ */
 @Test
 public void testGetDept()
 {
@@ -104,6 +130,9 @@ public void testGetDept()
 	assertEquals("These two department names must be the same",department,newdept);
 }
 
+/**
+ * Test method for {@link dto.JobAdvertDTO#getJobtitle()}.
+ */
 @Test
 public void testGetJTitle()
 {
@@ -113,7 +142,9 @@ public void testGetJTitle()
 	assertEquals("These two job reference codes must be the same",jobtitle,newjobtitle);
 }
 
-
+/**
+ * Test method for {@link dto.JobAdvertDTO#getJobdesc()}.
+ */
 @Test
 public void testGetJDesc()
 {
@@ -123,6 +154,9 @@ public void testGetJDesc()
 	assertEquals("These two job descriptions must be the same",jobdesc,newjobdesc);
 }
 
+/**
+ * Test method for {@link dto.JobAdvertDTO#getTechskills()}.
+ */
 @Test
 public void testGetTechskills()
 {
@@ -132,6 +166,9 @@ public void testGetTechskills()
 	assertEquals("These two technical skills must be the same",techskills,newtechskills);
 }
 
+/**
+ * Test method for {@link dto.JobAdvertDTO#getMgmtskills()}.
+ */
 @Test
 public void testGetMgmtskills()
 {
@@ -141,6 +178,9 @@ public void testGetMgmtskills()
 	assertEquals("These two job reference codes must be the same",mgmtskills,newmgmtskills);
 }
 
+/**
+ * Test method for {@link dto.JobAdvertDTO#getNoyrexp()}.
+ */
 @Test
 public void testGetNoyrexp()
 {
@@ -150,6 +190,9 @@ public void testGetNoyrexp()
 	assertEquals("These two no of year must be the same",noyrexp,newnoyrexp);
 }
 
+/**
+ * Test method for {@link dto.JobAdvertDTO#getSalaryrange()}.
+ */
 @Test
 public void testGetSalaryRange()
 {
@@ -159,7 +202,9 @@ public void testGetSalaryRange()
 	assertEquals("These two salary range must be the same",salaryrange,newsalaryrange);
 }
 
-
+/**
+ * Test method for {@link dto.JobAdvertDTO#getStartdate()}.
+ */
 @Test
 public void testGetStartDate()
 {
@@ -169,6 +214,9 @@ public void testGetStartDate()
 	assertEquals("These two date must be the same",startdate,newstartdate);
 }
 
+/**
+ * Test method for {@link dto.JobAdvertDTO#getLocation()}.
+ */
 @Test
 public void testGetLocation()
 {
@@ -178,6 +226,9 @@ public void testGetLocation()
 	assertEquals("These two location must be the same",location,newlocation);
 }
 
+/**
+ * Test method for {@link dto.JobAdvertDTO#getAdvertizerref()}.
+ */
 @Test
 public void testGetAdvertiserref()
 {
@@ -187,7 +238,9 @@ public void testGetAdvertiserref()
 	assertEquals("These two job reference codes must be the same",advertizerref,newadvertizerref);
 }
 
-
+/**
+ * Test method for {@link dto.JobAdvertDTO#getStatus()}.
+ */
 @Test
 public void testGetStatus()
 {
