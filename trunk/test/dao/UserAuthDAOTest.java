@@ -1,9 +1,10 @@
 package dao;
 
-import static org.junit.Assert.*;
 
 import java.io.File;
 import java.util.List;
+
+import junit.framework.TestCase;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,7 +12,7 @@ import org.junit.Test;
 
 import dto.UserAuthDTO;
 
-public class UserAuthDAOTest {
+public class UserAuthDAOTest extends TestCase{
 	
 	private int id;
 	private String uid;
