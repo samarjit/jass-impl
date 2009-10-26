@@ -40,8 +40,9 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 		prop.load(fin);
 		fin.close();
 		String str = "";
-		int i=jdt.getId();
-
+		//int i=jdt.getId();
+		int i = getNextId((T) jdt);
+		jdt.setId(i);
 		str = prop.getProperty("id"+jdt.getId());
 		if(str == null || "".equals(str))
 		{
@@ -83,9 +84,10 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			prop.load(fin);
 			fin.close();
 			String str = "";
+			
 			int i=jdt.getId();
 			
-			str = prop.getProperty("id"+jdt.getId());
+			str = prop.getProperty("id"+i);
 			if(str == null || "".equals(str))
 			{
 			throw new Exception("Select failed:Record does not exists");
@@ -212,6 +214,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 	public   int getNextId(T dt) throws IOException{
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
+		
 		 FileInputStream fin =  new FileInputStream(JobAdvertDAO.PROPFILE);
 			prop.load(fin);
 			fin.close();
@@ -223,7 +226,8 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			str = prop.getProperty("id"+i);
 			i++;
 			}while(str != null && i <=10000);
-			 i--;
+			 i--; 
+			
 			 
 			return i;
 	}
