@@ -177,6 +177,7 @@ public class JobAdvertiserMainScreen extends Frame {
 		this.mainPanel.add(newPanel,"Center");
 		completeWindow.add(mainPanel, "West");
 		this.setVisible(true);
+		this.pack();
 	}
 	
 	public void removeTitle(){		 
