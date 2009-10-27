@@ -87,6 +87,8 @@ public class JobAdvertListScreen extends Panel{
 		this.add(pMain);
 		
 		advertGT= new GTable();
+		scp.add(advertGT);
+		
 		advertGT.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				String cmd=e.getActionCommand();
@@ -207,11 +209,12 @@ public class JobAdvertListScreen extends Panel{
 		headerdata.add("Status");
 
 		try{
+			advertGT.setCurY(0);
 			advertGT.createGTable(headerdata,data);
 		}catch(Exception e1){
 			e1.printStackTrace();
 		}
-		scp.add(advertGT);
+		
 		itemSelectionFlag = false;
 	}
 
