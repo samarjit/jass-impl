@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="build" default="all" basedir=".">
+
+	<property environment="e"/>
+	<property name="build-dir" location="classes"/>
+	<property name="javadoc-dir"  location="docs"/>
+	<property name="src-dir"  location="src"/>
+	<property name="test-src-dir"  location="test"/>
+	<property name="lib-dir"  location="lib"/>
+
+	<target name="docs" depends="compile">
+		<javadoc  author="true"  version="true" destdir="${javadoc-dir}" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" splitindex="true" use="true"
+			sourcepath="src" sourcefiles="src/dao/ResponseDAO.java,src/dao/JobAdvertDAO.java,src/dto/ResponseDTO.java,src/dto/JobAdvertDTO.java,src/dao/UserAuthDAO.java" 
+			packagenames="src"	 />		
+	</target>
+
+	<target name="test" depends="compile">
+		<junit printsummary="yes">
+			<formatter type="plain" />
+			<test name="suite.AllTests" />
+			<classpath>
+				<pathelement location="${build-dir}"/>
+				<fileset dir="${lib-dir}">
+					<include name="junit-4.7.jar"/>
+				</fileset>
+			</classpath>
+		</junit>
+	</target>
+		
+	<target name="compile" depends="init">
+		<javac destdir="${build-dir}" deprecation="on">
+			<src>
+				<pathelement location="${src-dir}"/>
+				<pathelement location="${test-src-dir}"/>
+			</src>
+			<classpath>
+				<pathelement location="${build-dir}"/>				
+				<pathelement location="${e.JUNIT_HOME}/junit-4.7.jar"/>				
+			</classpath>
+		</javac>
+	</target>
+	
+	
+	<target name="init">
+		<mkdir dir="${build-dir}"/>
+	</target>
+
+	<target name="all" depends="compile, test, docs">
+	</target>
+
+	<target name="clean">
+		<delete dir="${build-dir}"/>
+		<delete dir="${javadoc-dir}"/>
+	</target>
+
+</project>
+
