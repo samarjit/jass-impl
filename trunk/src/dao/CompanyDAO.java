@@ -186,7 +186,9 @@ public class CompanyDAO<T> implements PropDAO<T> {
 		
 		}
 		
-		else return null;
+		else {
+			return null;
+		}
 		
 	}
 
