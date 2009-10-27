@@ -375,6 +375,12 @@ public class JobAdvertController {
 		JobAdvertDAO<JobAdvertDTO> jdao= new JobAdvertDAO<JobAdvertDTO>();
 		try {
 			jdao.insert(jdto);
+			updateJobAdvertList();
+			
+			if(jobAdvertListScreen!=null){
+				jobAdvertListScreen.refreshTable();
+			}
+			
 			new MessageDialog(this.getJobAdvertMainScreen(),"Success","Added Successfully");
 		} catch (Exception e) {
 			new MessageDialog(this.getJobAdvertMainScreen(),"Error","Exception in job advert DTO");
