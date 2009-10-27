@@ -108,7 +108,7 @@ public class AddJobAdvertScreen extends Panel{
 				if(validationchk()){
 					
 		jobadvertController.addJobAdvert(advertiserID.getText(),companyName.getText(),companydept.getText(),jobtitle.getText(),jobDesc.getText(),techskills.getText(),mgmtskills.getText(),yearsOfExp.getText(),salaryRange.getText(),companyAltDesc.getText(),startDate.getText(),location.getText());
-					
+					clear();
 				}
 				
 			}
@@ -121,26 +121,13 @@ public class AddJobAdvertScreen extends Panel{
 			
 			public void actionPerformed ( ActionEvent e){
 					
-		advertiserID.setText(null);
-		companyName.setText(null);
-		companydept.setText(null);
-		jobtitle.setText(null);
-		jobDesc.setText(null);
-		techskills.setText(null);
-		mgmtskills.setText(null);
-		yearsOfExp.setText(null);
-		salaryRange.setText(null);
-		companyAltDesc.setText(null);
-		startDate.setText(null);
-		location.setText(null);
+				clear();
 				
 			}
 		};
 		clearbtn.addActionListener(lclr);
 		
 		buttonPanel.add(clearbtn);
-		
-		
 		
 		closebtn = new Button("Close");
 		ActionListener listnercl = new ActionListener() {			
@@ -157,6 +144,7 @@ public class AddJobAdvertScreen extends Panel{
 		addAdvertPanel.add(areapanel,"Center");
 		addAdvertPanel.add(buttonPanel,"South");
 		add(addAdvertPanel);
+	
 		//setVisible(true);
 			
 	}
@@ -200,6 +188,23 @@ public class AddJobAdvertScreen extends Panel{
 	private void closePanel() {
 		jobadvertController.removeTitle();
 		setVisible(false);
+	}
+	
+	public void clear(){
+		
+		advertiserID.setText(null);
+		companyName.setText(null);
+		companydept.setText(null);
+		jobtitle.setText(null);
+		jobDesc.setText(null);
+		techskills.setText(null);
+		mgmtskills.setText(null);
+		yearsOfExp.setText(null);
+		salaryRange.setText(null);
+		companyAltDesc.setText(null);
+		startDate.setText(null);
+		location.setText(null);
+		
 	}
 		
 }
