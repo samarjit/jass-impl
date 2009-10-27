@@ -1,10 +1,14 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Random;
 
+import dao.CompanyDAO;
 import dao.ResponseDAO;
+import dto.CompanyDTO;
 import dto.JobAdvertDTO;
 import dto.ResponseDTO;
+import dto.UserAuthDTO;
 import dao.JobAdvertDAO;
 
 import gui.AddJobAdvertScreen;
@@ -54,7 +58,10 @@ public class JobAdvertController {
 	 * Display Add Job Advert Screen
 	 */
 	public void invokeAddJobAdvertScreen(){
-		AddJobAdvertScreen addjobScreen = new AddJobAdvertScreen(this);
+		
+		UserAuthDTO uadt = mainController.getUserAuth();
+		
+		AddJobAdvertScreen addjobScreen = new AddJobAdvertScreen(this, uadt.getUserID());
 		jobadvertMainScreen.setMainPanel(addjobScreen, "Add Job Advert");
 	}
 
@@ -290,6 +297,7 @@ public class JobAdvertController {
 	 * @param owner
 	 * @return
 	 */
+	
 	private boolean isOwner(String owner){
 		boolean ownership = false;
 		if(mainController.getUserAuth().getUserID().equals(owner))
@@ -314,6 +322,65 @@ public class JobAdvertController {
 			e.printStackTrace();
 		}
 		return jdto.getJobtitle();
+	}
+	
+	/**
+	 * Create a job advert after authenticating company name 
+	 * and generating a job reference id.
+	 */
+	
+	public void addJobAdvert(String advertiserID,String companyName,String companydept,String jobtitle,String jobDesc,String techskills,String mgmtskills,String yearsOfExp,String salaryRange,String companyAltDesc,String startDate,String location){
+		
+		CompanyDAO<CompanyDTO> cda = new CompanyDAO<CompanyDTO>();
+		CompanyDTO cdt = new CompanyDTO();
+		cdt.setCompanyName(companyName);
+		
+	
+		try {
+			 cda.selectIDbyName(cdt);
+			 if(cdt.getCompanyID()==null){
+				 new MessageDialog(this.getJobAdvertMainScreen(),"Error","Company Record Does not exsist");
+				throw new Exception();
+			 }
+		
+			 
+			
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			
+			return;
+		}
+		
+		
+		//generating job reference ID
+		Random rnum = new Random();
+		String jobrefcode = cdt.getCompanyID()+ rnum.nextInt(1000);
+		
+		JobAdvertDTO jdto = new JobAdvertDTO();
+		//jdto.setId(Integer.parseInt(id));
+		jdto.setJobtitle(jobtitle);
+		jdto.setJobdesc(jobDesc);
+		jdto.setAdvertizerref(advertiserID);
+		jdto.setCmpname(companyName);
+		jdto.setCmpnyDesc(companyAltDesc);
+		jdto.setDepartment(companydept);
+		jdto.setLocation(location);
+		jdto.setSalaryrange(salaryRange);
+		jdto.setStartdate(startDate);
+		jdto.setTechskills(techskills);
+		jdto.setMgmtskills(mgmtskills);
+		jdto.setJobrefcode(jobrefcode);
+		jdto.setNoyrexp(yearsOfExp);
+		
+		JobAdvertDAO<JobAdvertDTO> jdao= new JobAdvertDAO<JobAdvertDTO>();
+		try {
+			jdao.insert(jdto);
+			new MessageDialog(this.getJobAdvertMainScreen(),"Success","Added Successfully");
+		} catch (Exception e) {
+			new MessageDialog(this.getJobAdvertMainScreen(),"Error","Exception in job advert DTO");
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/**
