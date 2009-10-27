@@ -15,9 +15,19 @@ import dto.CompanyDTO;
 import dto.ResponseDTO;
 import dto.UserAuthDTO;
 
+/**
+ * <p><b>CompanyDAO</b> is data access object for accessing the company details in properties file</p>
+ * @author Anbazhagan satish kumar
+ * @param  <T> This should be <@link dto.CompanyDTO> object.
+ */
 public class CompanyDAO<T> implements PropDAO<T> {
 
 	public static String PROPFILE = "properties/company.properties";
+	
+	/** 
+	 * Deletes a Company record in the properties file
+	 * @see dao.PropDAO#delete(java.lang.Object)
+	 */
 	
 	public void delete(T dt) throws Exception {
 		 CompanyDTO cdt= (CompanyDTO) dt;
@@ -48,11 +58,13 @@ public class CompanyDAO<T> implements PropDAO<T> {
 		prop.store(fout, "deleted rec no:"+i +" on " + new Date());
 	    fout.close();
 	
-	
 }
-		
 	}
 
+	/** 
+	 * Gets the next Id that can be used for insertion of a new record.
+	 * @see dao.PropDAO#getNextId(java.lang.Object)
+	 */
 	public int getNextId(T dt) throws Exception {
 		 CompanyDTO cdt = (CompanyDTO)dt;
 		 Properties prop= new Properties();
@@ -72,6 +84,11 @@ public class CompanyDAO<T> implements PropDAO<T> {
 			return i;
 	}
 
+	/**
+	 * Inserts Company record to properties file
+	 * @see dao.PropDAO#insert(java.lang.Object)
+	 * @exception If insert failed then exception is thrown
+	 */
 	public void insert(T dt) throws Exception {
 		
 		CompanyDTO cdt= (CompanyDTO) dt;
@@ -106,6 +123,11 @@ public class CompanyDAO<T> implements PropDAO<T> {
 		
 	}
 
+	/**
+	 * Select a Company object from properties file
+	 * @see dao.PropDAO#select(java.lang.Object)
+	 * @exception If no record exists then select throws an exception
+	 */
 	
 	public T select(T dt) throws Exception {
 
@@ -129,7 +151,10 @@ public class CompanyDAO<T> implements PropDAO<T> {
 			}			 
 			return  dt;
 	}
-	
+	/**
+	 * Selects company records from properties file based on the company name. 
+	 * It sets the company ID selected from properties to Company DTO object.
+	*/
 	public T selectIDbyName(T dt) throws Exception{
 		
 		CompanyDTO cdt= (CompanyDTO) dt;
@@ -165,6 +190,10 @@ public class CompanyDAO<T> implements PropDAO<T> {
 		
 	}
 
+	/**
+	 * Select all Company records from properties file
+	 * @see dao.PropDAO#selectAll()
+	 */
 	
 	public Collection<T> selectAll() throws Exception {
 		 CompanyDTO cdt= new CompanyDTO();
@@ -189,6 +218,11 @@ public class CompanyDAO<T> implements PropDAO<T> {
 		return (Collection<T>) arCompanyDTO;
 	}
 
+	/**
+	 * Updates a company record from properties files
+	 * @see dao.PropDAO#update(java.lang.Object)
+	 * @exception If update fails it throws an exception
+	 */
 
 	public void update(T dt) throws Exception {
 		
