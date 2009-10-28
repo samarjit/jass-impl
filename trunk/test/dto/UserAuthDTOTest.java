@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 /**
  * <p> <b> UserAuthDTOTest </b> Test class for UserAuthDTO {@link dto.UserAuthDTOTest} class</p>
  * 
- * @author  
+ * @author  sarita singh
  * @version 1.0 28/09/09
  *
  */
