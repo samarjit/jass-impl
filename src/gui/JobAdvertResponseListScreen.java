@@ -100,7 +100,7 @@ public class JobAdvertResponseListScreen extends Panel{
 			row.add( String.valueOf(jobadvertResponseDTO.getId()));
 			row.add(jobadvertResponseDTO.getJsName());
 			row.add(String.valueOf(jobadvertResponseDTO.getAdvertRefId()));
-			row.add("pos frm job advert");
+			row.add(jobAdvertController.getJobAdvertTitle(jobadvertResponseDTO.getAdvertRefId()));
 
 			data.add(row);
 
@@ -118,7 +118,7 @@ public class JobAdvertResponseListScreen extends Panel{
 		}
 		pButton.add(getViewButton());
 		pButton.add(getCloseButton());
-		sc.setSize(600, 300);
+		sc.setSize(600, 450);
 		sc.add(gt);
 		pTable.setSize(1000, 500);
 		pTable.add(sc);
