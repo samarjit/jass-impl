@@ -12,7 +12,7 @@ import dto.CompanyDTO;
 
 import controller.JobAdvertController;
 
-/*
+/**
  * <p> <b>JobAdvertiserMainScreen</b> This class handles gui for the Adding Job advert 
  * by the advertiser.
  * </p> 
@@ -64,7 +64,7 @@ public class AddJobAdvertScreen extends Panel{
 
 		//creates Panel for Textfields
 		Panel memPanel = new Panel();
-		memPanel.setLayout(new GridLayout(13,2));		
+		memPanel.setLayout(new GridLayout(13,2,250,1));		
 		memPanel.add(new Label("Advertiser ID"));
 		memPanel.add(advertiserID);
 
