@@ -17,12 +17,11 @@ import dto.*;
 
 public class MainController {
 
-
 	private JobAdvertiserMainScreen jobadvertMainScreen;
 	private JobAdvertController jobAdvertController;
 	private UserAuthDTO userRec;
-
 	private static int USER_ID = 1;
+	
 	/**
 	 * <p> Constructor which creates MainController <p>
 	 * 
