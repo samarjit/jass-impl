@@ -52,8 +52,9 @@ public class UserAuthDAOTest extends TestCase{
 	 */	
 	@After
 	public void tearDown() throws Exception {
-		
-		 
+		UserAuthDAO.PROPFILE = "properties/userauthdaotest.properties";
+		File f = new File(UserAuthDAO.PROPFILE);
+		f.delete();			 
 	}
 	
 	/**
