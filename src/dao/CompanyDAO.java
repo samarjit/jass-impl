@@ -198,7 +198,7 @@ public class CompanyDAO<T> implements PropDAO<T> {
 	 */
 	
 	public Collection<T> selectAll() throws Exception {
-		 CompanyDTO cdt= new CompanyDTO();
+		CompanyDTO cdt = null;
 		 Properties prop= new Properties();
 		 FileInputStream fin =  new FileInputStream(CompanyDAO.PROPFILE);
 			prop.load(fin);
@@ -211,14 +211,19 @@ public class CompanyDAO<T> implements PropDAO<T> {
 				str =   itr.next();
 				if(str !=null && "id".equals(str.substring(0,str.length()-1))){
 						str = str.substring(str.length()-1,str.length());
+						cdt= new CompanyDTO();
 						cdt.setId(Integer.parseInt(prop.getProperty("id"+str)));
 						cdt.setCompanyID(prop.getProperty("CompanyId"+str));
 						cdt.setCompanyName(prop.getProperty("CompanyName"+str));
 						arCompanyDTO.add(cdt);
+				
 				}
 			}			
+			
 		return (Collection<T>) arCompanyDTO;
 	}
+	
+
 
 	/**
 	 * Updates a company record from properties files
