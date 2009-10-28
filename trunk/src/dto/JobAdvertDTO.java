@@ -236,8 +236,7 @@ public class JobAdvertDTO implements PropDTO{
 	
 	/**
 	 * sets status
-	 * @return 
-	 * */
+	 */
 	public void setStatus (String status) {
 		this.status = status;
 	}

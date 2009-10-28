@@ -71,7 +71,7 @@ public class ResponseDTO implements PropDTO {
 	
 	/**
 	 * returns  job seeker email
-	 * @return
+	 * @return Job Seeker Email
 	 */
 	public String getJsEmail() {
 		return jsEmail;
@@ -87,7 +87,7 @@ public class ResponseDTO implements PropDTO {
 	
 	/**
 	 * returns  job seeker address
-	 * @return
+	 * @return Job Seeker Address
 	 */
 	public String getJsAddress() {
 		return jsAddress;
@@ -103,7 +103,7 @@ public class ResponseDTO implements PropDTO {
 	
 	/**
 	 * returns  job seeker telephone number
-	 * @return
+	 * @return Job Seeker Tel.
 	 */
 	public String getJsTelNum() {
 		return jsTelNum;
@@ -119,7 +119,7 @@ public class ResponseDTO implements PropDTO {
 	
 	/**
 	 * returns  job seeker resume
-	 * @return
+	 * @return Job Seeker Resume
 	 */
 	public String getJsResume() {
 		return jsResume;
@@ -134,8 +134,7 @@ public class ResponseDTO implements PropDTO {
 	}
 	
 	/**
-	 *  returns job advert reference id
-	 * @param advertRefId
+	 * @return job advert reference id
 	 */
 	public int getAdvertRefId() {
 		return advertRefId;

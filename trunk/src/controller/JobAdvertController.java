@@ -310,7 +310,7 @@ public class JobAdvertController {
 	/**
 	 * get the job advert title from advertiser reference id
 	 * @param advertRefId
-	 * @return
+	 * @return Job advert title
 	 */
 	public String getJobAdvertTitle(int advertRefId){
 		JobAdvertDTO jdto = new JobAdvertDTO();

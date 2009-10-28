@@ -13,9 +13,9 @@ import org.junit.Test;
 import dto.UserAuthDTO;
 
 /**
- * <p> <b> ResponseDAOTest </b> Test class for ResponseDAO {@link dao.ResponseDAO} class</p>
+ * <p> <b> UserAuthDAOTest </b> Test class for ResponseDAO {@link dao.UserAuthDAO} class</p>
  * 
- * @author  
+ * @author Sarita 
  * @version 1.0 28/09/09
  *
  */
