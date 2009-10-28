@@ -59,7 +59,7 @@ public class JobAdvertiserMainScreen extends Frame {
 		completeWindow.add(right);
 		completeWindow.add(getButtonPanel(), "East");				
 		add(completeWindow);	
-		setSize(800, 500);
+		setSize(800,650);
 		setTitle("JASS");		
 	}
 
@@ -177,7 +177,7 @@ public class JobAdvertiserMainScreen extends Frame {
 		this.mainPanel.add(newPanel,"Center");
 		completeWindow.add(mainPanel, "West");
 		this.setVisible(true);
-		this.pack();
+		
 	}
 	
 	public void removeTitle(){		 
