@@ -94,14 +94,14 @@ public class AddJobAdvertScreen extends Panel{
 		memPanel.add(new Label("Location"));
 		location = new TextField();
 		memPanel.add(location);
-
-
+		
+		memPanel.add(new Label(""));
 
 		Panel areapanel = new Panel();
-		areapanel.setLayout(new GridLayout(1,2));	
+		areapanel.setLayout(new BorderLayout());	
 		areapanel.add(new Label("Job Description"));
 		jobDesc = new TextArea();
-		areapanel.add(jobDesc);
+		areapanel.add(jobDesc,BorderLayout.SOUTH);
 
 		Panel buttonPanel = new Panel();
 
