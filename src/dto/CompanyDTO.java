@@ -28,7 +28,7 @@ public class CompanyDTO {
 
 	/**
 	 * set Company id
-	 * @param Company id
+	 * @param companyID
 	 */
 	public void setCompanyID(String companyID) {
 		CompanyID = companyID;
@@ -44,7 +44,7 @@ public class CompanyDTO {
 
 	/**
 	 * set Company Name
-	 * @param Company Name
+	 * @param companyName Company Name
 	 */
 	public void setCompanyName(String companyName) {
 		CompanyName = companyName;

@@ -46,8 +46,7 @@ public class UserAuthDTO {
 	
 	/**
 	 * set user id
-	 * @param id
-	 * @return nothing
+	 * @param userID User ID
 	 */
 	public void setUserID(String userID) {
 		this.userID = userID;

@@ -50,7 +50,7 @@ public class ResponseDTOTest extends TestCase{
 	}
 	
 	/**
-	* Test method for {@link dto.ResponseDTO#setId()}.
+	* Test method for {@link dto.ResponseDTO#setId(int)}.<br/>
 	* Test method for {@link dto.ResponseDTO#getId()}.
 	*/	
 	
@@ -63,7 +63,7 @@ public class ResponseDTOTest extends TestCase{
 	}
 	
 	/**
-	* Test method for {@link dto.ResponseDTO#setJsId()}.
+	* Test method for {@link dto.ResponseDTO#setJsId(int)}.<br/>
 	* Test method for {@link dto.ResponseDTO#getJsId()}.
 	*/
 	
@@ -76,7 +76,7 @@ public class ResponseDTOTest extends TestCase{
 	}
 
 	/**
-	* Test method for {@link dto.ResponseDTO#setJsName()}.
+	* Test method for {@link dto.ResponseDTO#setJsName(String)}.<br/>
 	* Test method for {@link dto.ResponseDTO#getJsName()}.
 	*/
 	
@@ -89,7 +89,7 @@ public class ResponseDTOTest extends TestCase{
 	}
 
 	/**
-	* Test method for {@link dto.ResponseDTO#setJsEmail()}.
+	* Test method for {@link dto.ResponseDTO#setJsEmail(String)}.<br/>
 	* Test method for {@link dto.ResponseDTO#getJsEmail()}.
 	*/
 	
@@ -102,7 +102,7 @@ public class ResponseDTOTest extends TestCase{
 	}
 
 	/**
-	* Test method for {@link dto.ResponseDTO#setJsAddress()}.
+	* Test method for {@link dto.ResponseDTO#setJsAddress(String)}.<br/>
 	* Test method for {@link dto.ResponseDTO#getJsAddress()}.
 	*/
 	
@@ -115,7 +115,7 @@ public class ResponseDTOTest extends TestCase{
 	}
 
 	/**
-	* Test method for {@link dto.ResponseDTO#setJsTelNum()}.
+	* Test method for {@link dto.ResponseDTO#setJsTelNum(String)}.<br/>
 	* Test method for {@link dto.ResponseDTO#getJsTelNum()}.
 	*/
 	
@@ -128,7 +128,7 @@ public class ResponseDTOTest extends TestCase{
 	}
 
 	/**
-	* Test method for {@link dto.ResponseDTO#setJsResume()}.
+	* Test method for {@link dto.ResponseDTO#setJsResume(String)}.<br/>
 	* Test method for {@link dto.ResponseDTO#getJsResume()}.
 	*/
 	
@@ -141,7 +141,7 @@ public class ResponseDTOTest extends TestCase{
 	}
 
 	/**
-	* Test method for {@link dto.ResponseDTO#setAdvertRefId()}.
+	* Test method for {@link dto.ResponseDTO#setAdvertRefId(int)}.<br/>
 	* Test method for {@link dto.ResponseDTO#getAdvertRefId()}.
 	*/
 	

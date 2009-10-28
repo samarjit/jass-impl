@@ -17,7 +17,7 @@ import dto.*;
 /**
  * <p> <b>ResponseDAO</b> This class handles the update, delete, insert, select 
  * operations on Response records</p> 
- * @param  <T> This should be <@link dto.ResponseDTO> object.
+ * @param  <T> This should be {@link dto.ResponseDTO} object.
  * 
  * @author Justin Jose
  * @version 1.0	28/09/09
@@ -32,9 +32,10 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	/**
 	 * insert one Response record into the Response properties file
 	 * @see dao.PropDAO#insert(java.lang.Object)
-	 * @param <T> template variable. Can be any DTO
+	 * @param T template variable. Can be any DTO
 	 * @exception If insert failed then exception is thrown
 	 */
+
 	public   void insert(T dt) throws Exception {
 		 ResponseDTO rdt= (ResponseDTO) dt;
 		 Properties prop= new Properties();
