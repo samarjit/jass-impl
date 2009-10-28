@@ -19,7 +19,7 @@ import dto.*;
  * <p><b>UserAuthDAO</b> is data access object for accessing the User Authentication details properties file and 
  * authenticating the details.</p>
  * @author Anbazhagan satish kumar
- * @param  <T> This should be <@link dto.UserAuthDTO> object.
+ * @param  T This should be <@link dto.UserAuthDTO> object.
  */
 public class UserAuthDAO<T> implements PropDAO<T> {
 	
