@@ -65,26 +65,26 @@ public class JobAdvertResponseDetailScreen extends Panel{
 		Panel detailsPanel = new Panel(new GridLayout(7,2));
 		
 		
-		detailsPanel.add(new Label("Candidate Name"));
+		detailsPanel.add(new Label("Candidate Name       "));
 		TextField candidateNameTxt = new TextField(10);
 		candidateNameTxt.setEditable(false);		
 		candidateNameTxt.setText(response.getJsName());		
 		detailsPanel.add(candidateNameTxt);
 		
-		detailsPanel.add(new Label("Job Seeker Code"));		
+		detailsPanel.add(new Label("Job Seeker Code       "));		
 		TextField jsidTxt = new TextField(10);	
 		jsidTxt.setEditable(false);
 		jsidTxt.setText(Integer.toString(response.getJsId()));		
 		detailsPanel.add(jsidTxt);
 		
 		
-		detailsPanel.add(new Label("Job Advert Ref ID"));		
+		detailsPanel.add(new Label("Job Advert Ref ID       "));		
 		TextField advertRefIdTxt = new TextField(10);	
 		advertRefIdTxt.setEditable(false);
 		advertRefIdTxt.setText(Integer.toString(response.getAdvertRefId()));		
 		detailsPanel.add(advertRefIdTxt);
 		
-		detailsPanel.add(new Label("Job Title"));		
+		detailsPanel.add(new Label("Job Title       "));		
 		TextField jobTText = new TextField(10);
 		advertRefIdTxt.setEditable(false);		
 		jobTText.setText(jobAdvertController.getJobAdvertTitle(response.getAdvertRefId()));		
@@ -92,13 +92,13 @@ public class JobAdvertResponseDetailScreen extends Panel{
 		
 		
 		
-		detailsPanel.add(new Label("Email"));
+		detailsPanel.add(new Label("Email       "));
 		TextField EmailTText = new TextField(10);
 		EmailTText.setEditable(false);
 		EmailTText.setText(response.getJsEmail());		
 		detailsPanel.add(EmailTText);
 		
-		detailsPanel.add(new Label("Tel"));
+		detailsPanel.add(new Label("Telephone Number       "));
 		TextField telText = new TextField(10);
 		telText.setEditable(false);
 		telText.setText(response.getJsTelNum());		
@@ -106,14 +106,14 @@ public class JobAdvertResponseDetailScreen extends Panel{
 		
 		Panel textPanel = new Panel(new GridLayout(2,2));
 		
-		textPanel.add(new Label("Address"));		
-		TextArea addressText =new TextArea("",3,20,TextArea.SCROLLBARS_BOTH);
+		textPanel.add(new Label("Address       "));		
+		TextArea addressText =new TextArea("",5,40,TextArea.SCROLLBARS_BOTH);
 		addressText.setEditable(false);
 		addressText.setText(response.getJsAddress());		
 		textPanel.add(addressText);
 		
-		textPanel.add(new Label("Resume"));
-		TextArea resumeText =new TextArea("",3,20,TextArea.SCROLLBARS_BOTH);
+		textPanel.add(new Label("Resume       "));
+		TextArea resumeText =new TextArea("",7,40,TextArea.SCROLLBARS_BOTH);
 		resumeText.setEditable(false);
 		resumeText.setText(response.getJsResume());		
 		textPanel.add(resumeText);
