@@ -405,8 +405,11 @@ public class JobAdvertController {
 		return responseList;
 	}
 	
-	public ArrayList<CompanyDTO> getCompanyDetails(){
-		
+	/**
+	 * Get the List of company
+	 * @return ArrayList of CompanyDTO
+	 */
+	public ArrayList<CompanyDTO> getCompanyDetails(){		
 		CompanyDAO<CompanyDTO> cda = new CompanyDAO<CompanyDTO>();
 		ArrayList<CompanyDTO> arCompanyDTO = null;
 		try {
