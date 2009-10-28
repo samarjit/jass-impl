@@ -168,7 +168,6 @@ public class AddJobAdvertScreen extends Panel{
 
 	}
 	
-	
 	/**
 	 * GUI Validations
 	 * @return boolean
@@ -256,7 +255,5 @@ public class AddJobAdvertScreen extends Panel{
 		}
 
 	}
-
-
 
 }
