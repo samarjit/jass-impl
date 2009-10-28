@@ -16,7 +16,7 @@ import dto.ResponseDTO;
 import dto.UserAuthDTO;
 
 /**
- * <p><b>CompanyDAO</b> is data access object for accessing the company details in properties file</p>
+ * <p><b>CompanyDAO</b> is data access object for accessing the company details from properties file</p>
  * @author Anbazhagan satish kumar
  * @param  <T> This should be <@link dto.CompanyDTO> object.
  */
