@@ -405,4 +405,19 @@ public class JobAdvertController {
 		return responseList;
 	}
 	
+	public ArrayList<CompanyDTO> getCompanyDetails(){
+		
+		CompanyDAO<CompanyDTO> cda = new CompanyDAO<CompanyDTO>();
+		ArrayList<CompanyDTO> arCompanyDTO = null;
+		try {
+		 arCompanyDTO = (ArrayList<CompanyDTO>) cda.selectAll();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return arCompanyDTO;
+		
+	}
+	
 }
