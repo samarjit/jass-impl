@@ -84,9 +84,9 @@ public class JobAdvertDetailScreen extends Panel{
 	 */	
 	private Component getMainPanel() {
 		
-		Panel mainPanel = new Panel(new GridLayout(15,2));				
+		Panel mainPanel = new Panel(new GridLayout(15,2,150,10));				
 		mainPanel.add(new Label("Job Id"));
-		jobIdTxt = new TextField(10);
+		jobIdTxt = new TextField(30);
 		jobIdTxt.setEditable(false);		
 		jobIdTxt.setText(Integer.toString(jobadvert.getId()));		
 		mainPanel.add(jobIdTxt);
