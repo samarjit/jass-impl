@@ -7,6 +7,15 @@ import java.awt.event.ActionListener;
 import controller.JobAdvertController;
 import dto.JobAdvertDTO;
 
+/**
+ *  <p> <b>JobAdvertDetailScreen</b> This class handles the graphical user interface for 
+ *  viewing the details of the job advert such as jobtitle, jobdescription,required skills, start date and location
+ * </p>
+ * @author Sarita Singh
+ *
+ */
+
+
 public class JobAdvertDetailScreen extends Panel{
 	
 	private static final long serialVersionUID = 1L;
@@ -34,6 +43,12 @@ public class JobAdvertDetailScreen extends Panel{
 	private TextField startdateTxt;
 	
 	
+	/**
+	 * Constructor
+	 * @param jobAdvertController
+	 * @param response
+	 */
+		
 	public JobAdvertDetailScreen(JobAdvertController jobAdvertController,JobAdvertDTO jobadvertdetail) {
 		this.jobAdvertController = jobAdvertController;
 		this.jobadvert=jobadvertdetail;
@@ -53,7 +68,7 @@ public class JobAdvertDetailScreen extends Panel{
 	
 	/**
 	 * Creating the button panel for the job advert detail screen
-	 * @return
+	 * @return the panel created for the buttons
 	 */
 	private Component getButtonPanel() {
 		Panel btPanel = new Panel();
@@ -65,7 +80,7 @@ public class JobAdvertDetailScreen extends Panel{
 
 	/**
 	 * create the main panel for response detail screen
-	 * @return
+	 * @return the main panel created for response detail screen
 	 */	
 	private Component getMainPanel() {
 		
@@ -201,7 +216,7 @@ public class JobAdvertDetailScreen extends Panel{
 
 	/**
 	 * create close button 
-	 * @return button
+	 * @return button for closing the Panel
 	 */
 	private Component getCloseButton() {
 		Button btn = new Button("Close");
@@ -217,7 +232,7 @@ public class JobAdvertDetailScreen extends Panel{
 	
 	/**
 	 * create modify button 
-	 * @return button
+	 * @return button for selecting the modify option for modifying details of the job advert
 	 */
 	private Component getModifyButton() {
 		Button btn = new Button("Modify");
@@ -232,7 +247,7 @@ public class JobAdvertDetailScreen extends Panel{
 	
 	/**
 	 * create save button 
-	 * @return button
+	 * @return button for selecting the save option for saving the job advert details
 	 */
 	private Component getSaveButton() {
 		Button btn = new Button("Save");
@@ -253,7 +268,7 @@ public class JobAdvertDetailScreen extends Panel{
 	
 
 	/**
-	 * close the JobAdvertResponseDetail panel
+	 * close the JobAdvertDetail panel
 	 */
 	private void closePanel() {
 		jobAdvertController.removeTitle();
@@ -261,7 +276,7 @@ public class JobAdvertDetailScreen extends Panel{
 	}
 	
 	/**
-	 * set text fileds editable for modification
+	 * set the text fields editable for modification
 	 */
 	private void setEditable(boolean flag){		
 		advertTitle.setEditable(flag);
@@ -287,47 +302,105 @@ public class JobAdvertDetailScreen extends Panel{
 	}
 	
 	
+	/**
+	 * obtain the company name to display in the textfield
+	 * @return Company Name
+	 */
 	public TextField getCmpnameTxt() {
 		return cmpnameTxt;
 	}
+	
 
+	/**
+	 * obtain the job reference code to display in the text field
+	 * @return job reference code
+	 */	
 	public TextField getJobrefcodeTxt() {
 		return jobrefcodeTxt;
 	}
-
+	
+	
+	/**
+	 * obtain the company description to display in the textfield
+	 * @return the company description
+	 */
 	public TextField getCmpnyDescTxt() {
 		return cmpnyDescTxt;
 	}
-
+	
+	
+	/**
+	 * obtain the management skills requirements to be displayed in the textfield
+	 * @return the management skills requirements
+	 */
 	public TextField getMgmtSkillsTxt() {
 		return mgmtSkillsTxt;
 	}
-
+	
+	
+	
+	/**
+	 * obtain the salary range to be displayed in the textfield
+	 * @return the salary range 
+	 */
 	public TextField getSalaryrangeTxt() {
 		return salaryrangeTxt;
 	}
-
 	
+	
+	
+	/**
+	 * obtain the technical skills requirements to be displayed in the textfield
+	 * @return the technical skills requirements
+	 */	
 	public TextField getTechskillsTxt() {
 		return techskillsTxt;
 	}
-
+	
+	
+	/**
+	 * obtain the status of the advertised job( filled or unfilled) to be displayed in the textfield
+	 * @return the status of the job advert(whether filled or not filled)
+	 */
 	public TextField getStatusTxt() {
 		return statusTxt;
 	}
-
+	
+	
+	/**
+	 * obtain the location of the company advertising the job to be displayed in the textfield
+	 * @return the location of the company
+	 */	
 	public TextField getLocationTxt() {
 		return locationTxt;
 	}
-
+	
+	
+	/**
+	 * obtain the  number of years experience requirements to be displayed in the textfield
+	 * @return the  number of years experience requirements
+	 */	
 	public TextField getNoyrexpTxt() {
 		return noyrexpTxt;
 	}
 
+	
+	
+	/**
+	 * obtain the department name  to be displayed in the textfield
+	 * @return the department name 
+	 */
 	public TextField getDepartmentTxt() {
 		return departmentTxt;
 	}
-
+	
+	
+	
+		
+	/**
+	 * obtain the start date for the advertised job to be displayed in the textfield
+	 * @return the start date for the advertised job
+	 */	
 	public TextField getStartdateTxt() {
 		return startdateTxt;
 	}
