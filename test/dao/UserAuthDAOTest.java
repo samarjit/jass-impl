@@ -32,7 +32,7 @@ public class UserAuthDAOTest extends TestCase{
 	@Before
 	public void setUp() throws Exception {
 		
-	    UserAuthDAO.PROPFILE = "properties/userauth.properties";
+	    UserAuthDAO.PROPFILE = "properties/userauthdaotest.properties";
 		File f = new File(UserAuthDAO.PROPFILE);
 		f.delete();
 		f.createNewFile();
