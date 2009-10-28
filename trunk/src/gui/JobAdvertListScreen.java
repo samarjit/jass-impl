@@ -93,7 +93,7 @@ public class JobAdvertListScreen extends Panel{
 
 
 		scp= new ScrollPane();		
-		scp.setSize(600,300);
+		scp.setSize(600,450);
 		
 
 		pTablePanel.setSize(500,500);
