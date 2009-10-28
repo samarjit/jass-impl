@@ -12,13 +12,21 @@ import dto.CompanyDTO;
 
 import controller.JobAdvertController;
 
+/*
+ * <p> <b>JobAdvertiserMainScreen</b> This class handles gui for the Adding Job advert 
+ * by the advertiser.
+ * </p> 
+ * @author Anbazhagan Satish Kumar
+ * @version 1.0	
+ * 
+ */
+
 public class AddJobAdvertScreen extends Panel{
 
 	private static final long serialVersionUID = 1L;
 
 	private JobAdvertController jobadvertController;
 	private TextField advertiserID;
-	//private TextField companyName;
 	private TextField companydept;
 	private TextField jobtitle;
 	private TextArea  jobDesc;
@@ -37,18 +45,24 @@ public class AddJobAdvertScreen extends Panel{
 	private Choice companyName;
 	private ArrayList<CompanyDTO> arCompanyDTO = null;
 
-
+	/**
+	 * Consturctor
+	 */
 	public AddJobAdvertScreen(JobAdvertController jobadvertController, String advertiserId) {
 		this.jobadvertController = jobadvertController;
 		advertiserID = new TextField(advertiserId);
 		advertiserID.setEnabled(false);
 		init();
 	}
-
+	/**
+	 * Creates Panels for Buttons, Textfields and TextArea
+	 */
 	private void init(){
 
+		//creates Main Panel
 		Panel addAdvertPanel = new Panel(new BorderLayout());
 
+		//creates Panel for Textfields
 		Panel memPanel = new Panel();
 		memPanel.setLayout(new GridLayout(13,2));		
 		memPanel.add(new Label("Advertiser ID"));
@@ -94,19 +108,23 @@ public class AddJobAdvertScreen extends Panel{
 		memPanel.add(new Label("Location"));
 		location = new TextField();
 		memPanel.add(location);
-		
+
 		memPanel.add(new Label(""));
 
+		//Creates Panel for TextArea
 		Panel areapanel = new Panel();
 		areapanel.setLayout(new BorderLayout());	
 		areapanel.add(new Label("Job Description"));
 		jobDesc = new TextArea();
 		areapanel.add(jobDesc,BorderLayout.SOUTH);
 
+		//Creates Panel for Buttons
 		Panel buttonPanel = new Panel();
-
+		clearbtn = new Button("Clear");
 		addbtn = new Button("Create Advert");
+		closebtn = new Button("Close");
 
+		//Adding ActionListener for Buttons
 		ActionListener ladd =new ActionListener(){
 			public void actionPerformed ( ActionEvent e){
 				if(validationchk()){
@@ -118,9 +136,7 @@ public class AddJobAdvertScreen extends Panel{
 			}
 		};
 		addbtn.addActionListener(ladd);
-		buttonPanel.add(addbtn);
 
-		clearbtn = new Button("Clear");
 		ActionListener lclr =new ActionListener(){
 
 			public void actionPerformed ( ActionEvent e){
@@ -131,9 +147,6 @@ public class AddJobAdvertScreen extends Panel{
 		};
 		clearbtn.addActionListener(lclr);
 
-		buttonPanel.add(clearbtn);
-
-		closebtn = new Button("Close");
 		ActionListener listnercl = new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {				
 				closePanel();
@@ -141,18 +154,25 @@ public class AddJobAdvertScreen extends Panel{
 			}
 		};
 		closebtn.addActionListener(listnercl);
+
+		buttonPanel.add(addbtn);
+		buttonPanel.add(clearbtn);
 		buttonPanel.add(closebtn);
 
 
+		//Adding Sub panels to Main Panel
 		addAdvertPanel.add(memPanel,"North");
 		addAdvertPanel.add(areapanel,"Center");
 		addAdvertPanel.add(buttonPanel,"South");
 		add(addAdvertPanel);
 
-		//setVisible(true);
-
 	}
-
+	
+	
+	/**
+	 * GUI Validations
+	 * @return boolean
+	 */
 	public boolean validationchk(){
 
 		if(advertiserID.getText().length()==0 || companyName.getSelectedIndex()== -1 || companyName.getSelectedIndex()== 0 ||companydept.getText().length()==0 || jobtitle.getText().length()==0 ||jobDesc.getText().length()==0 || techskills.getText().length()==0 ||mgmtskills.getText().length()==0 || yearsOfExp.getText().length()==0 ||salaryRange.getText().length()==0 ||companyAltDesc.getText().length()==0 ||startDate.getText().length()==0 ||location.getText().length()==0){
@@ -188,12 +208,20 @@ public class AddJobAdvertScreen extends Panel{
 
 		return true;
 	}
-
+	
+	
+	/**
+	 * Removes the Header title and sets the panel's visibility to false
+	 */
 	private void closePanel() {
 		jobadvertController.removeTitle();
 		setVisible(false);
 	}
 
+	/**
+	 * clears all the values entered previously by the user 
+	 * after a job advert record is successfuly created.
+	 */
 	public void clear(){
 
 		advertiserID.setText(null);
@@ -210,6 +238,10 @@ public class AddJobAdvertScreen extends Panel{
 		location.setText(null);
 
 	}
+	
+	/**
+	 * Refreshes the Company Name drop down list box.
+	 */
 
 	public void refresh_companylist(){
 		companyName.removeAll();
@@ -219,12 +251,12 @@ public class AddJobAdvertScreen extends Panel{
 
 		for(CompanyDTO cdt : arCompanyDTO){
 			companyName.add(cdt.getCompanyName());
-		//	System.out.println(cdt.getId());
+			//	System.out.println(cdt.getId());
 
 		}
 
 	}
-	
-	
+
+
 
 }
