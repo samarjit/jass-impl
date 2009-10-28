@@ -13,7 +13,9 @@ import dto.ResponseDTO;
 
 
 /**
- *  <p> <b>JobAdvertListScreen</b> This class handles gui for the job advert list
+ * <p> <b>JobAdvertListScreen</b> This class handles the graphical user interface for the JobAdvertListScreen
+ * The JobAdvertListScreen displays the list of all the job advertised. The JobAdvertList screen provides options
+ * to view, delete, withdraw a particular jobadvert.
  * </p>
  * @author Sarita Singh, Justin Jose
  *
@@ -27,22 +29,33 @@ public class JobAdvertListScreen extends Panel{
 	private GTable advertGT;
 	private ScrollPane scp;
 	private int jobid;
-		
-	
 	private boolean itemSelectionFlag=false;
+	
+	
+	/**
+	 * Constructor
+	 * @param jobAdvertController
+	 * @param jobAdvertList
+	 */	
 
 	public JobAdvertListScreen(JobAdvertController jobAdvertController,ArrayList<JobAdvertDTO> jobAdvertList) {
 
 		this.jobAdvertController = jobAdvertController;
 		init();
 	}
+	
+	/**
+	 * initialize the jobadvertlistscreen 
+	 */	
 	private void init() {
 
 		Panel pMain = new Panel();
 		Panel pTablePanel= new Panel();
 		Panel pButton =new Panel();
 
-		// adding the view button
+		
+		 //add the view button for viewing details of a particular  job advert 
+		 	
 		Button btnview = new Button ("View");
 		btnview.setActionCommand("View");
 		ActionListener listener =new ActionListener(){
@@ -62,13 +75,20 @@ public class JobAdvertListScreen extends Panel{
 
 		pButton.add(btnview);
 
-		// adding the withdraw button		
+		
+	
+		//add the withdraw button for withdrawing the job advert once filled in 
+		 				
 		pButton.add(getWithDrawBtn());
 
-		// adding the delete button		
+	
+		//add the delete button for deleting  the job advert  
+		 	
 		pButton.add(getDeleteButton());
 
-		// adding the close button		
+	
+		//add the close button for closing the JobAdvertListscreen
+		 		
 		pButton.add(getCloseButton());
 
 
@@ -85,6 +105,10 @@ public class JobAdvertListScreen extends Panel{
 		pMain.setVisible(true);
 		pMain.add(pButton, BorderLayout.SOUTH);
 		this.add(pMain);
+		
+		
+		 // Create the GTable and display the list of all job adverts
+		 	
 		
 		advertGT= new GTable();
 		scp.add(advertGT);
@@ -105,8 +129,8 @@ public class JobAdvertListScreen extends Panel{
 	}
 
 	/**
-	 * get the with draw button
-	 * @return
+	 * Implement the withdraw button
+	 * @return the  withdraw button created
 	 */
 	private Component getWithDrawBtn(){
 		Button btnwithdraw =new Button ("WithDraw");
@@ -130,8 +154,8 @@ public class JobAdvertListScreen extends Panel{
 	}
 	
 	/**
-	 * get the delete button
-	 * @return
+	 * Implement the delete button
+	 * @return the delete button created
 	 */
 	private Component getDeleteButton(){
 		Button btndelete = new Button("Delete");
@@ -151,6 +175,11 @@ public class JobAdvertListScreen extends Panel{
 		btndelete.addActionListener(listenery);		 
 		return btndelete;
 	}
+	
+	/**
+	 * Implement the close button
+	 * @return the close button created
+	 */
 	
 	
 	private Component getCloseButton(){
