@@ -18,7 +18,7 @@ import dto.UserAuthDTO;
 /**
  * <p><b>CompanyDAO</b> is data access object for accessing the company details from properties file</p>
  * @author Anbazhagan satish kumar
- * @param  <T> This should be <@link dto.CompanyDTO> object.
+ * @param  T This should be <@link dto.CompanyDTO> object.
  */
 public class CompanyDAO<T> implements PropDAO<T> {
 

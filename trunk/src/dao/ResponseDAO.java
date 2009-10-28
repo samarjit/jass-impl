@@ -17,7 +17,7 @@ import dto.*;
 /**
  * <p> <b>ResponseDAO</b> This class handles the update, delete, insert, select 
  * operations on Response records</p> 
- * @param  <T> This should be {@link dto.ResponseDTO} object.
+ * @param  T This should be {@link dto.ResponseDTO} object.
  * 
  * @author Justin Jose
  * @version 1.0	28/09/09
