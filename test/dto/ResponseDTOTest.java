@@ -20,17 +20,16 @@ import junit.framework.TestCase;
  *
  */
 
-private int id=0;
-private int jsId;
-private String jsName;
-private String jsEmail;
-private String jsAddress;
-private String jsTelNum;
-private String jsResume;
-private int advertRefId;
-
 public class ResponseDTOTest extends TestCase{
-
+	
+	private int id=0;
+	private int jsId;
+	private String jsName;
+	private String jsEmail;
+	private String jsAddress;
+	private String jsTelNum;
+	private String jsResume;
+	private int advertRefId;
 	
 	/**
 	 * initialization. Executed before each test.
@@ -46,7 +45,7 @@ public class ResponseDTOTest extends TestCase{
 		jsAddress="boon lay";
 		jsTelNum="81231344";
 		jsResume="ergtrtg";
-		advertRefId="adv54";
+		advertRefId=1;
 		
 	}
 	
@@ -150,8 +149,8 @@ public class ResponseDTOTest extends TestCase{
 	{
 		ResponseDTO responseDTO=new ResponseDTO();
 		responseDTO.setAdvertRefId(advertRefId);
-		String advertRefId1= responseDTO.getAdvertRefId();
-		assertTrue(advertRefId.equals(advertRefId1));
+		int advertRefId1= responseDTO.getAdvertRefId();
+		assertTrue(advertRefId==(advertRefId1));
 	}
 	
 	
