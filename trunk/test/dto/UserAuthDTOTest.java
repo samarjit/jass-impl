@@ -5,11 +5,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import junit.framework.TestCase;
-
 /**
- * <p><b>JobAdvertDTOTest</b> will be used to test {@link JobAdvertDTO}class</p>
- * @author 
- * @version 1.0
+ * <p> <b> UserAuthDTOTest </b> Test class for UserAuthDTO {@link dto.UserAuthDTOTest} class</p>
+ * 
+ * @author  
+ * @version 1.0 28/09/09
+ *
  */
 
 import dto.UserAuthDTO;
@@ -43,10 +44,10 @@ public class UserAuthDTOTest extends TestCase{
 		
 	}
 	
-	
 /**
+* Test method for {@link dto.UserAuthDTO#setId(String)}.<br/>
 * Test method for {@link dto.UserAuthDTO#getId()}.
-*/	
+*/
 @Test
 public void testGetId()
 {
@@ -57,8 +58,9 @@ public void testGetId()
 }
 
 /**
- * Test method for {@link dto.UserAuthDTO#getUserID()}.
- */
+* Test method for {@link dto.UserAuthDTO#setUserID(String)}.<br/>
+* Test method for {@link dto.UserAuthDTO#getUserID()}.
+*/
 @Test
 public void testGetUserId(){
 	   UserAuthDTO userauthdto= new UserAuthDTO();
@@ -69,8 +71,9 @@ public void testGetUserId(){
 
 
 /**
- * Test method for {@link dto.UserAuthDTO#getPwd()}.
- */
+* Test method for {@link dto.UserAuthDTO#serPwd(String)}.<br/>
+* Test method for {@link dto.UserAuthDTO#getPwd()}.
+*/
 @Test
 public void testGetPassword(){
 	   UserAuthDTO userauthdto= new UserAuthDTO();

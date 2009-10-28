@@ -71,8 +71,9 @@ public class JobAdvertDTOTest extends TestCase{
 	}
 	
 /**
- * Test method for {@link dto.JobAdvertDTO#getId()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setId(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getId()}.
+*/
 @Test
 public void testGetId()
 {
@@ -84,8 +85,9 @@ public void testGetId()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getCmpnyDesc()}.
- */	
+* Test method for {@link dto.JobAdvertDTO#setCmpnyDesc(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getCmpnyDesc()}.
+*/
 @Test
 public void testGetCompanyDesc(){
 	JobAdvertDTO jobadvertDTO = new JobAdvertDTO();
@@ -95,8 +97,9 @@ public void testGetCompanyDesc(){
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getJobrefcode()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setJobrefcode(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getJobrefcode()}.
+*/
 @Test
 public void testGetJobrefcode()
 {
@@ -107,8 +110,9 @@ public void testGetJobrefcode()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getCmpname()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setCmpname(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getCmpname()}.
+*/
 @Test
 public void testGetCmpName()
 {
@@ -119,8 +123,9 @@ public void testGetCmpName()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getDepartment()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setDepartment(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getDepartment()}.
+*/
 @Test
 public void testGetDept()
 {
@@ -131,8 +136,9 @@ public void testGetDept()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getJobtitle()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setJobtitle(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getJobtitle()}.
+*/
 @Test
 public void testGetJTitle()
 {
@@ -143,8 +149,9 @@ public void testGetJTitle()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getJobdesc()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setJobdesc(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getJobdesc()}.
+*/
 @Test
 public void testGetJDesc()
 {
@@ -155,8 +162,9 @@ public void testGetJDesc()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getTechskills()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setTechskills(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getTechskills()}.
+*/
 @Test
 public void testGetTechskills()
 {
@@ -167,8 +175,9 @@ public void testGetTechskills()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getMgmtskills()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setMgmtskills(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getMgmtskills()}.
+*/
 @Test
 public void testGetMgmtskills()
 {
@@ -179,8 +188,9 @@ public void testGetMgmtskills()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getNoyrexp()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setNoyrexp(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getNoyrexp()}.
+*/
 @Test
 public void testGetNoyrexp()
 {
@@ -191,8 +201,9 @@ public void testGetNoyrexp()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getSalaryrange()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setSalaryrange(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getSalaryrange()}.
+*/
 @Test
 public void testGetSalaryRange()
 {
@@ -203,8 +214,9 @@ public void testGetSalaryRange()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getStartdate()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setStartdate(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getStartdate()}.
+*/
 @Test
 public void testGetStartDate()
 {
@@ -215,8 +227,9 @@ public void testGetStartDate()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getLocation()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setLocation(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getLocation()}.
+*/
 @Test
 public void testGetLocation()
 {
@@ -227,8 +240,9 @@ public void testGetLocation()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getAdvertizerref()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setAdvertiserref(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getAdvertiserref()}.
+*/
 @Test
 public void testGetAdvertiserref()
 {
@@ -239,8 +253,9 @@ public void testGetAdvertiserref()
 }
 
 /**
- * Test method for {@link dto.JobAdvertDTO#getStatus()}.
- */
+* Test method for {@link dto.JobAdvertDTO#setStatus(String)}.<br/>
+* Test method for {@link dto.JobAdvertDTO#getStatus()}.
+*/
 @Test
 public void testGetStatus()
 {
