@@ -207,10 +207,10 @@ public class CompanyDAO<T> implements PropDAO<T> {
 			fin.close();
 			String str = "";
 			Set<?> kprop = prop.keySet();			
-			Iterator<String> itr = (Iterator<String>)kprop.iterator();
-			ArrayList<CompanyDTO> arCompanyDTO =  new ArrayList<CompanyDTO>();
+			Iterator itr = (Iterator)kprop.iterator();
+			Collection<CompanyDTO> arCompanyDTO =  new ArrayList<CompanyDTO>();
 			while(itr.hasNext()){
-				str =   itr.next();
+				str =  (String) itr.next();
 				if(str !=null && "id".equals(str.substring(0,str.length()-1))){
 						str = str.substring(str.length()-1,str.length());
 						cdt= new CompanyDTO();
@@ -222,7 +222,7 @@ public class CompanyDAO<T> implements PropDAO<T> {
 				}
 			}			
 			
-		return (Collection<T>) arCompanyDTO;
+		return  (Collection<T>) arCompanyDTO;
 	}
 	
 

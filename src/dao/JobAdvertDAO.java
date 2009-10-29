@@ -43,8 +43,8 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 		prop.load(fin);
 		fin.close();
 		String str = "";
-		//int i=jdt.getId();
-		int i = getNextId((T) jdt);
+		 int i=jdt.getId();
+		//int i = getNextId((T) jdt);
 		jdt.setId(i);
 		str = prop.getProperty("id"+jdt.getId());
 		if(str == null || "".equals(str))
@@ -127,10 +127,10 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			fin.close();
 			String str = "";
 			Set<?> kprop = prop.keySet();			
-			Iterator<String> itr = (Iterator<String>)kprop.iterator();
+			Iterator itr = (Iterator)kprop.iterator();
 			ArrayList<JobAdvertDTO> arJobadvertDTO =  new ArrayList<JobAdvertDTO>();
 			while(itr.hasNext()){
-				str =   itr.next();
+				str =  (String)itr.next();
 				if(str !=null && "id".equals(str.substring(0,str.length()-1))){
 						str = str.substring(str.length()-1,str.length() );
 						jdt= new JobAdvertDTO();

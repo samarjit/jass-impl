@@ -122,10 +122,10 @@ public class ResponseDAO<T> implements PropDAO<T> {
 			fin.close();
 			String str = "";
 			Set<?> kprop = prop.keySet();			
-			Iterator<String> itr = (Iterator<String>)kprop.iterator();
+			Iterator itr = (Iterator)kprop.iterator();
 			ArrayList<ResponseDTO> arResponseDTO =  new ArrayList<ResponseDTO>();
 			while(itr.hasNext()){
-				str =   itr.next();
+				str =   (String) itr.next();
 				if(str !=null && "id".equals(str.substring(0,str.length()-1))){
 						str = str.substring(str.length()-1,str.length() );
 						rdt= new ResponseDTO();
