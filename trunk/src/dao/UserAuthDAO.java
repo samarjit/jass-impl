@@ -168,10 +168,10 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 			fin.close();
 			String str = "";
 			Set<?> kprop = prop.keySet();			
-			Iterator<String> itr = (Iterator<String>)kprop.iterator();
+			Iterator itr = (Iterator)kprop.iterator();
 			ArrayList<UserAuthDTO> arUserAuthDTO =  new ArrayList<UserAuthDTO>();
 			while(itr.hasNext()){
-				str =   itr.next();
+				str =  (String) itr.next();
 				if(str !=null && "id".equals(str.substring(0,str.length()-1))){
 						str = str.substring(str.length()-1,str.length() );
 						uadt.setId(Integer.parseInt(prop.getProperty("id"+str)));
