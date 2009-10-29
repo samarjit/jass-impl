@@ -65,16 +65,20 @@ public class UserAuthDAOTest extends TestCase{
 	{
 		UserAuthDAO<UserAuthDTO> uadao=new UserAuthDAO<UserAuthDTO>();
 		UserAuthDTO uadto= new UserAuthDTO();
-				
+
 		uadto.setId(id);
 		uadto.setUserID(uid);
 		uadto.setPwd(pwd);
+		
 		try {
 			uadao.insert(uadto);
 			
-			assertEquals("The IDs should be the same.",id,uadto.getId());
-			assertEquals("The UserIDs should be the same.",uid,uadto.getUserID());
-			assertEquals("The Passwords should be the same.",pwd,uadto.getPwd());
+			UserAuthDTO seludt = null;
+			seludt = uadao.select(uadto);
+
+			assertEquals("The IDs should be the same.",id,seludt.getId());
+			assertEquals("The UserIDs should be the same.",uid,seludt.getUserID());
+			assertEquals("The Passwords should be the same.",pwd,seludt.getPwd());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
