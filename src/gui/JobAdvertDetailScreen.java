@@ -282,7 +282,7 @@ public class JobAdvertDetailScreen extends Panel{
 		advertTitle.setEditable(flag);
 		jobTDesc.setEditable(flag);		
 		cmpnameTxt.setEditable(flag);
-		jobrefcodeTxt.setEditable(flag);
+		//jobrefcodeTxt.setEditable(flag);
 		cmpnyDescTxt.setEditable(flag);
 		mgmtSkillsTxt.setEditable(flag);
 		salaryrangeTxt.setEditable(flag);

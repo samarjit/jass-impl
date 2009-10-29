@@ -223,7 +223,7 @@ public class AddJobAdvertScreen extends Panel{
 	 */
 	public void clear(){
 
-		advertiserID.setText(null);
+		
 		refresh_companylist();
 		companydept.setText(null);
 		jobtitle.setText(null);
