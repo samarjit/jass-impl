@@ -43,8 +43,8 @@ public class JobAdvertDAO<T> implements PropDAO<JobAdvertDTO>{
 		prop.load(fin);
 		fin.close();
 		String str = "";
-		 int i=jdt.getId();
-		//int i = getNextId((T) jdt);
+		 //int i=jdt.getId();
+		 int i = getNextId(  jdt);
 		jdt.setId(i);
 		str = prop.getProperty("id"+jdt.getId());
 		if(str == null || "".equals(str))
