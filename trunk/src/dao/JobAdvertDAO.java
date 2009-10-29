@@ -19,7 +19,7 @@ import dto.*;
  * @author Samarjit Samanta
  * @param  T This should be {@link dto.JobAdvertDTO} object.
  */
-public class JobAdvertDAO<T> implements PropDAO<T>{
+public class JobAdvertDAO<T> implements PropDAO<JobAdvertDTO>{
 	
 	/**
 	 * This contains the path of properties file jobadvert.properties, where data is stored
@@ -30,7 +30,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 	 * @see dao.PropDAO#insert(java.lang.Object)
 	 * @exception If insert failed then exception is thrown
 	 */
-	public   void insert(T dt) throws Exception {
+	public   void insert(JobAdvertDTO dt) throws Exception {
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
 		 File fprop = new File(JobAdvertDAO.PROPFILE);
@@ -80,7 +80,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 	 * @see dao.PropDAO#select(java.lang.Object)
 	 * @exception If no record exists then select throws an exception
 	 */
-	public   T select(T  dt) throws Exception {
+	public   JobAdvertDTO select(JobAdvertDTO  dt) throws Exception {
 		 JobAdvertDTO jdt=  (JobAdvertDTO)  dt;
 		 Properties prop= new Properties();
 		 FileInputStream fin =  new FileInputStream(JobAdvertDAO.PROPFILE);
@@ -119,7 +119,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 	 * Select all JobAdvert objects from properties
 	 * @see dao.PropDAO#selectAll()
 	 */
-	public Collection<T> selectAll() throws Exception {
+	public Collection<JobAdvertDTO> selectAll() throws Exception {
 		 JobAdvertDTO jdt= null;
 		 Properties prop= new Properties();
 		 FileInputStream fin =  new FileInputStream(JobAdvertDAO.PROPFILE);
@@ -156,7 +156,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 			
 			 
 			 
-		return (Collection<T>) arJobadvertDTO;
+		return (Collection<JobAdvertDTO>) arJobadvertDTO;
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 	 * @see dao.PropDAO#update(java.lang.Object)
 	 * @exception If update fails it throws an exception
 	 */
-	public   void update(T dt) throws Exception {
+	public   void update(JobAdvertDTO dt) throws Exception {
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
 		 File fprop = new File(JobAdvertDAO.PROPFILE);
@@ -214,7 +214,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 	 * of a database system so it is not derived from interface.
 	 * @see dao.PropDAO#getNextId(java.lang.Object)
 	 */
-	public   int getNextId(T dt) throws IOException{
+	public   int getNextId(JobAdvertDTO dt) throws IOException{
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
 		
@@ -240,7 +240,7 @@ public class JobAdvertDAO<T> implements PropDAO<T>{
 	 * advert id.
 	 * @see dao.PropDAO#delete(java.lang.Object)
 	 */
-	public void delete(T dt) throws Exception {
+	public void delete(JobAdvertDTO dt) throws Exception {
 		 JobAdvertDTO jdt= (JobAdvertDTO) dt;
 		 Properties prop= new Properties();
 		 File fprop = new File(JobAdvertDAO.PROPFILE);

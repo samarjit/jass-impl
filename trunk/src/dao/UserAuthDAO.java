@@ -21,7 +21,7 @@ import dto.*;
  * @author Anbazhagan satish kumar
  * @param  T This should be <@link dto.UserAuthDTO> object.
  */
-public class UserAuthDAO<T> implements PropDAO<T> {
+public class UserAuthDAO<T> implements PropDAO<UserAuthDTO> {
 	
 	/**
 	 *   This contains the path of properties file userauth.properties, where data is stored
@@ -32,7 +32,7 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 	 * @see dao.PropDAO#delete(java.lang.Object)
 	 */
 
-	public void delete(T dt) throws Exception { 
+	public void delete(UserAuthDTO dt) throws Exception { 
 	 
 		 UserAuthDTO uadt= (UserAuthDTO) dt;
 		 Properties prop= new Properties();
@@ -72,7 +72,7 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 	 * Gets the next Id that can be used for insertion of a new record.
 	 * @see dao.PropDAO#getNextId(java.lang.Object)
 	 */
-	public int getNextId(T dt) throws Exception {
+	public int getNextId(UserAuthDTO dt) throws Exception {
 		 UserAuthDTO uadt= (UserAuthDTO) dt;
 		 Properties prop= new Properties();
 		 FileInputStream fin =  new FileInputStream(UserAuthDAO.PROPFILE);
@@ -95,7 +95,7 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 	 * @see dao.PropDAO#insert(java.lang.Object)
 	 * @exception If insert failed then exception is thrown
 	 */
-	public void insert(T dt) throws Exception {
+	public void insert(UserAuthDTO dt) throws Exception {
 		
 		 UserAuthDTO uadt= (UserAuthDTO) dt;
 		 Properties prop= new Properties();
@@ -134,7 +134,7 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 	 * @see dao.PropDAO#select(java.lang.Object)
 	 * @exception If no record exists then select throws an exception
 	 */
-	public T select(T dt) throws Exception {
+	public UserAuthDTO select(UserAuthDTO dt) throws Exception {
 		 UserAuthDTO uadt= (UserAuthDTO) dt;
 		 Properties prop= new Properties();
 		 FileInputStream fin =  new FileInputStream(UserAuthDAO.PROPFILE);
@@ -160,7 +160,7 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 	 * Select all UserAuth records from properties file
 	 * @see dao.PropDAO#selectAll()
 	 */
-	public Collection<T> selectAll() throws Exception {
+	public Collection<UserAuthDTO> selectAll() throws Exception {
 		 UserAuthDTO uadt= new UserAuthDTO();
 		 Properties prop= new Properties();
 		 FileInputStream fin =  new FileInputStream(UserAuthDAO.PROPFILE);
@@ -180,7 +180,7 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 						arUserAuthDTO.add(uadt);
 				}
 			}			
-		return (Collection<T>) arUserAuthDTO;
+		return (Collection<UserAuthDTO>) arUserAuthDTO;
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class UserAuthDAO<T> implements PropDAO<T> {
 	 * @see dao.PropDAO#update(java.lang.Object)
 	 * @exception If update fails it throws an exception
 	 */
-	public void update(T dt) throws Exception {
+	public void update(UserAuthDTO dt) throws Exception {
 		
 		 UserAuthDTO uadt= (UserAuthDTO) dt;
 		 Properties prop= new Properties();

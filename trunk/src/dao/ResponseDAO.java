@@ -24,7 +24,7 @@ import dto.*;
  * 
  */
 
-public class ResponseDAO<T> implements PropDAO<T> {
+public class ResponseDAO<T> implements PropDAO<ResponseDTO> {
 	
 	
 	/**
@@ -38,7 +38,7 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	 * @exception If insert failed then exception is thrown
 	 */
 
-	public   void insert(T dt) throws Exception {
+	public   void insert(ResponseDTO dt) throws Exception {
 		 ResponseDTO rdt= (ResponseDTO) dt;
 		 Properties prop= new Properties();
 		 File fprop = new File(ResponseDAO.PROPFILE);
@@ -80,7 +80,7 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	 * @see dao.PropDAO#select(java.lang.Object)
 	 * @exception If select failed then exception is thrown
 	 */
-	public   T select(T dt) throws Exception {
+	public   ResponseDTO select(ResponseDTO dt) throws Exception {
 		 ResponseDTO rdt= (ResponseDTO) dt;
 		 Properties prop= new Properties();
 		 FileInputStream fin =  new FileInputStream(ResponseDAO.PROPFILE);
@@ -114,7 +114,7 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	 * @see dao.PropDAO#selectAll()
 	 * @exception If selectALL failed then exception is thrown
 	 */
-	public Collection<T> selectAll() throws Exception {
+	public Collection<ResponseDTO> selectAll() throws Exception {
 		 ResponseDTO rdt= null;
 		 Properties prop= new Properties();
 		 FileInputStream fin =  new FileInputStream(ResponseDAO.PROPFILE);
@@ -141,7 +141,7 @@ public class ResponseDAO<T> implements PropDAO<T> {
 						arResponseDTO.add(rdt);
 				}
 			}			
-		return (Collection<T>) arResponseDTO;
+		return (Collection<ResponseDTO>) arResponseDTO;
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	 * @see dao.PropDAO#update(java.lang.Object)
 	 * @exception If update failed then exception is thrown
 	 */
-	public   void update(T dt) throws Exception {
+	public   void update(ResponseDTO dt) throws Exception {
 		 ResponseDTO rdt= (ResponseDTO) dt;
 		 Properties prop= new Properties();
 		 File fprop = new File(ResponseDAO.PROPFILE);
@@ -191,7 +191,7 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	 * @see dao.PropDAO#getNextId(java.lang.Object)
 	 * @exception If getNextId failed then exception is thrown
 	 */
-	public   int getNextId(T dt) throws IOException{
+	public   int getNextId(ResponseDTO dt) throws IOException{
 		 ResponseDTO rdt= (ResponseDTO) dt;
 		 Properties prop= new Properties();
 		 FileInputStream fin =  new FileInputStream(ResponseDAO.PROPFILE);
@@ -215,7 +215,7 @@ public class ResponseDAO<T> implements PropDAO<T> {
 	 * @see dao.PropDAO#delete(java.lang.Object)
 	 * @exception If delete failed then exception is thrown
 	 */
-	public void delete(T dt) throws Exception {
+	public void delete(ResponseDTO dt) throws Exception {
 		 ResponseDTO rdt= (ResponseDTO) dt;
 		 Properties prop= new Properties();
 		 File fprop = new File(ResponseDAO.PROPFILE);
