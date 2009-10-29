@@ -191,7 +191,7 @@ public class AddJobAdvertScreen extends Panel{
 		}
 
 
-		if(!startDate.getText().isEmpty()){
+		if(!"".equals(startDate.getText())){
 
 			DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 			df.setLenient(false);
