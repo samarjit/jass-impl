@@ -7,7 +7,12 @@
 	<property name="src-dir"  location="src"/>
 	<property name="test-src-dir"  location="test"/>
 	<property name="lib-dir"  location="lib"/>
-
+	
+	<path id="classpath">
+				<fileset dir="${lib-dir}" includes="**/*.jar"/>
+		        <fileset dir="${build-dir}" includes="**/*.class"/>
+	</path>
+	
 	<target name="docs" depends="compile">
 		<javadoc  author="true"  version="true" destdir="${javadoc-dir}" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" splitindex="true" use="true"
 			sourcepath="src" sourcefiles="src/dao/ResponseDAO.java,src/dao/JobAdvertDAO.java,src/dto/ResponseDTO.java,src/dto/JobAdvertDTO.java,src/dao/UserAuthDAO.java" 
@@ -19,23 +24,21 @@
 			<formatter type="plain" />
 			<test name="suite.AllTests" />
 			<classpath>
-				<pathelement location="${build-dir}"/>
-				<fileset dir="${lib-dir}">
-					<include name="junit-4.7.jar"/>
-				</fileset>
+				<pathelement location="${build-dir}" />
+			     <path refid="classpath" />
 			</classpath>
 		</junit>
 	</target>
 		
 	<target name="compile" depends="init">
 		<javac destdir="${build-dir}" deprecation="on">
+			 
 			<src>
 				<pathelement location="${src-dir}"/>
 				<pathelement location="${test-src-dir}"/>
 			</src>
 			<classpath>
-				<pathelement location="${build-dir}"/>				
-				<pathelement location="${e.JUNIT_HOME}/junit-4.7.jar"/>				
+				<path refid="classpath" />			
 			</classpath>
 		</javac>
 	</target>
