@@ -23,6 +23,9 @@ import dto.*;
  */
 public class UserAuthDAO<T> implements PropDAO<T> {
 	
+	/**
+	 *   This contains the path of properties file userauth.properties, where data is stored
+	 */
 	public static String PROPFILE = "properties/userauth.properties";
 	/** 
 	 * Deletes a User Auth record in the properties file

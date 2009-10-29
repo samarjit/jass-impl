@@ -27,6 +27,9 @@ import dto.*;
 public class ResponseDAO<T> implements PropDAO<T> {
 	
 	
+	/**
+	 *  This contains the path of properties file response.properties, where data is stored
+	 */
 	public static String PROPFILE = "properties/response.properties";
 	
 	/**

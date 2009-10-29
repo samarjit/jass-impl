@@ -17,10 +17,13 @@ import dto.*;
  * <p><b>JobAdvertDAO</b> is data access object for accessing the jobadvert properties file and 
  * maintaining JobAdvert related records.</p>
  * @author Samarjit Samanta
- * @param  T This should be <@link dto.JobAdvertDTO> object.
+ * @param  T This should be {@link dto.JobAdvertDTO} object.
  */
 public class JobAdvertDAO<T> implements PropDAO<T>{
 	
+	/**
+	 * This contains the path of properties file jobadvert.properties, where data is stored
+	 */
 	public static String PROPFILE = "properties/jobadvert.properties";
 	/**
 	 * Inserts JobAdvert to properties
