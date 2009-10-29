@@ -21,7 +21,9 @@ import dto.UserAuthDTO;
  * @param  T This should be <@link dto.CompanyDTO> object.
  */
 public class CompanyDAO<T> implements PropDAO<T> {
-
+	/**
+	 * This contains the path of properties file company.properties, where data is stored
+	 */
 	public static String PROPFILE = "properties/company.properties";
 	
 	/** 

@@ -10,9 +10,21 @@ package dto;
  */
 public class JobAdvertDTO implements PropDTO{
 	
+	/**
+	 * The Job Advert Status is "new" for the record
+	 */
 	public static String STATUS_NEW = "new";
+	/**
+	 * The Job Advert Status is "obsolete" for the record
+	 */
 	public static String STATUS_OBSOLETE = "obsolete";
+	/**
+	 * The Job Advert Status is "withdrawn" for the record
+	 */
 	public static String STATUS_WITHDRAWN = "withdrawn";
+	/**
+	 * The Job Advert Status is "filled" for the record
+	 */
 	public static String STATUS_FILLED = "filled";
 	
 	
